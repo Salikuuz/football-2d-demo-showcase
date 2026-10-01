@@ -1,4 +1,0 @@
-Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
-
-[Controller 2026-08-14 06:10:52] startup device=-1 name=n/a guid=n/a info={} reported=[] known=[] connection_order=-1 active=-1 using_controller=false local_peer=1 logical=local_player_controller assignment_unavailable=false aliases=[] input_map_devices=[-1] initial inventory
-AI V2 rollout integrity checks passed (33 assertions).
