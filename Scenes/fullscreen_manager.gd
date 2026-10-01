@@ -55,7 +55,7 @@ func _apply_game_content_scaling() -> void:
 		return
 	game_window.content_scale_size = GAME_CONTENT_SIZE
 	game_window.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
-	game_window.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
+	game_window.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 
 
 func _input(event: InputEvent) -> void:
