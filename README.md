@@ -1,12 +1,12 @@
-# Theodore Ball - Web / Mobile Showcase
+# Theodore Ball - Web Demo
 
-Public showcase build of **Theodore Ball**, a 2D football game project made with **Godot** and exported for the web.
+This is a playable web/mobile build of **Theodore Ball**, a 2D football game I worked on with Godot.
 
-**Live demo:** https://football-2d-demo-showcase.vercel.app/
+**Play it here:** https://football-2d-demo-showcase.vercel.app/
 
-> This repository contains an older web/mobile showcase version. The desktop version is more complete, has additional systems and optimizations, and includes multiplayer through the Steam API.
+The web version is based on an older build. The desktop version is further developed, has more features and optimizations, and also supports multiplayer through the Steam API.
 
-## Playable features in this showcase
+## What is in this demo?
 
 - Singleplayer 1v1
 - Ranked
@@ -17,43 +17,19 @@ Public showcase build of **Theodore Ball**, a 2D football game project made with
 
 ## What I worked on
 
-I originally implemented some of the early UI and gameplay features myself. After the first phase, most code implementation became **AI-assisted with OpenAI Codex** because I preferred to focus on designing systems, testing behavior and iterating on the game rather than spending most of the project learning around limited GDScript documentation.
+At the beginning I coded some of the UI and gameplay myself. Later I used **OpenAI Codex** heavily for implementation while I focused more on planning features, testing, debugging and deciding how systems should behave.
 
-My work focused on:
+The CPU AI was the part I spent the most time on. I designed how it should play and then tested and adjusted it over roughly 2.5 weeks until the behavior felt right.
 
-- planning features and defining how they should behave
-- designing UI and gameplay systems
-- designing and iteratively tuning the CPU opponent behavior over roughly 2.5 weeks
-- finding, reproducing and analyzing bugs
-- testing changes and giving detailed implementation feedback
-- adapting and testing the web/mobile version until it reached a playable state
-- debugging and iterative gameplay adjustments
+I also worked on:
+- UI and gameplay ideas
+- finding and reproducing bugs
+- testing fixes and new features
+- giving detailed feedback for further changes
+- adapting the web/mobile version until it was playable
 
-Most code after the initial phase was generated with Codex from my specifications and feedback. I remained responsible for the intended behavior, feature design, testing, bug reports, iteration and deciding whether an implementation matched the goal.
+## Tech
 
-## Technology
+Godot · GDScript · Godot Web Export · Git/GitHub · Vercel
 
-- Godot
-- GDScript
-- Godot Web Export
-- Git / GitHub
-- Vercel
-- OpenAI Codex as an implementation and debugging aid
-
-## Why this repository is public
-
-This repository is a **portfolio/showcase version** of the project. It is intended to demonstrate practical experience with:
-
-- feature planning
-- UI and gameplay design
-- scripting workflows
-- testing and debugging
-- iterative development
-- deployment of a Godot web build
-- working effectively with AI-assisted development tools
-
-## Desktop version
-
-The private desktop version is further developed than this showcase and contains additional systems, redesigned elements and optimizations. Multiplayer in that version uses the **Steam API**.
-
-The desktop repository is intentionally not linked here.
+This repository is mainly here as a public showcase of the project. It is not the newest or most complete Theodore Ball build.
