@@ -9,9 +9,9 @@ const MAX_SUPERSAMPLE: float = 2.0
 # Mobile Web prioritizes stable 60 FPS and low input-to-photon latency over
 # desktop-grade supersampling. On Retina iPhones the browser backing canvas can
 # be well above 1080p even though the physical display is small. Cap the
-# gameplay render target to a 480p vertical budget and let the simple 2D art
+# gameplay render target to a 1080p vertical budget and let the simple 2D art
 # upscale once at presentation time.
-const MOBILE_WEB_MAX_VERTICAL_PIXELS: float = 480.0
+const MOBILE_WEB_MAX_VERTICAL_PIXELS: float = 1080.0
 const MIN_LOGICAL_SIZE := Vector2i(320, 180)
 
 @onready var render_container: SubViewportContainer = $RenderContainer
