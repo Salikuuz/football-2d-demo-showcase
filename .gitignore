@@ -13,3 +13,10 @@ game/mobile_web/
 # OS/editor noise
 .DS_Store
 Thumbs.db
+
+# Test/build scratch
+*.err
+*.out
+__pycache__/
+*.pyc
+.godot-layout-check/
