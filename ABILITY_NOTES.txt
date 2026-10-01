@@ -1,8 +1,0 @@
-New playmaker ability suggestion: Side Swipe
-- A sideways redirection kick that cuts the ball sharply to the side.
-- Works as both a disguised pass and an angled shot.
-- Best fit as a Playmaker ability.
-
-Included changed files:
-- Characters/ability_side_swipe.svg
-- Characters/ability_breakaway.svg
