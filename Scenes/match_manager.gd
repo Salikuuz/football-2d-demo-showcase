@@ -379,67 +379,67 @@ const SINGLEPLAYER_RANKED_BOSSES: Array[Dictionary] = [
 	}
 ]
 const LADDER_FUNNY_CPU_NAMES: Array[String] = [
-	"Alex Storm",
-	"Milo Vega",
-	"Jonas Falk",
-	"Leo Hartmann",
-	"Emil Costa",
-	"Noah Voss",
-	"Luca Moretti",
-	"Finn Adler",
-	"Elias Berg",
-	"Samir Kaya",
-	"Tom Becker",
-	"Nico Brandt",
-	"Max Keller",
-	"Ben Wagner",
-	"David Silva Jr",
-	"Marco Stein",
-	"Julian Wolf",
-	"Rayan Demir",
-	"Felix Sommer",
-	"Adam Novak",
-	"Leon Kruger",
-	"Yusuf Aydin",
-	"Mika Lorenz",
-	"Daniel Costa",
-	"Robin Weiss",
-	"Kerem Yilmaz",
-	"Paul Winter",
-	"Oskar Neumann",
-	"Tim Berger",
-	"Deniz Arslan",
-	"Jan Hoffmann",
-	"Anton Richter",
-	"Can Kaplan",
-	"Louis Schmitt",
-	"Jonas Peters",
-	"Emre Sahin",
-	"Fabian Koch",
-	"Malik Hassan",
-	"Simon Roth",
-	"Kevin Braun"
+	"Walter White",
+	"Jesse Pinkman",
+	"Saul Goodman",
+	"Gus Fring",
+	"Hank Schrader",
+	"Dexter Morgan",
+	"James Doakes",
+	"Patrick Jane",
+	"Red John",
+	"Michael Scott",
+	"Dwight Schrute",
+	"Jim Halpert",
+	"Barney Stinson",
+	"Thomas Shelby",
+	"Sherlock Holmes",
+	"John Wick",
+	"Jack Sparrow",
+	"Tony Stark",
+	"Peter Parker",
+	"Bruce Wayne",
+	"Clark Kent",
+	"Rick Grimes",
+	"Daryl Dixon",
+	"Homelander",
+	"Billy Butcher",
+	"Neo Anderson",
+	"Marty McFly",
+	"Doc Brown",
+	"Rocky Balboa",
+	"Forrest Gump",
+	"LeBron James",
+	"Stephen Curry",
+	"Usain Bolt",
+	"Gordon Ramsay",
+	"Keanu Reeves",
+	"Bryan Cranston",
+	"Ryan Gosling",
+	"Leonardo DiCaprio",
+	"Samuel L. Jackson",
+	"Tom Hanks"
 ]
 
-# PvE Ranked uses neutral fictional identities in the lower divisions.
+# PvE Ranked uses harmless pop-culture and sports identities in the lower divisions.
 const PVE_RANKED_FUNNY_NAMES_BY_DIVISION: Dictionary = {
 	1: [
-		"Alex Storm", "Milo Vega", "Jonas Falk", "Leo Hartmann",
-		"Emil Costa", "Noah Voss", "Luca Moretti", "Finn Adler",
-		"Elias Berg", "Samir Kaya", "Tom Becker", "Nico Brandt",
-		"Max Keller", "Ben Wagner", "Marco Stein", "Julian Wolf"
+		"Walter White", "Jesse Pinkman", "Saul Goodman", "Gus Fring",
+		"Hank Schrader", "Dexter Morgan", "James Doakes", "Patrick Jane",
+		"Red John", "Michael Scott", "Dwight Schrute", "Jim Halpert",
+		"Barney Stinson", "Thomas Shelby", "Sherlock Holmes", "John Wick"
 	],
 	2: [
-		"Rayan Demir", "Felix Sommer", "Adam Novak", "Leon Kruger",
-		"Yusuf Aydin", "Mika Lorenz", "Daniel Costa", "Robin Weiss",
-		"Kerem Yilmaz", "Paul Winter", "Oskar Neumann", "Tim Berger"
+		"Jack Sparrow", "Tony Stark", "Peter Parker", "Bruce Wayne",
+		"Clark Kent", "Rick Grimes", "Daryl Dixon", "Homelander",
+		"Billy Butcher", "Neo Anderson", "Marty McFly", "Doc Brown"
 	],
 	3: [
-		"Deniz Arslan", "Jan Hoffmann", "Anton Richter", "Can Kaplan",
-		"Louis Schmitt", "Jonas Peters", "Emre Sahin", "Fabian Koch"
+		"Rocky Balboa", "Forrest Gump", "LeBron James", "Stephen Curry",
+		"Usain Bolt", "Gordon Ramsay", "Keanu Reeves", "Bryan Cranston"
 	],
 	4: [
-		"Malik Hassan", "Simon Roth", "Kevin Braun", "David Silva Jr"
+		"Ryan Gosling", "Leonardo DiCaprio", "Samuel L. Jackson", "Tom Hanks"
 	]
 }
 
