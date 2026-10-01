@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://j8da7247jlp2"]
+
+[ext_resource type="Script" uid="uid://ba68o1d4lk84w" path="res://Characters/ball.gd" id="1_xbjn5"]
+[ext_resource type="AudioStream" uid="uid://bl7t2avr4khyv" path="res://mixkit-hitting-soccer-ball-2112-godot.mp3" id="2_074n8"]
+[ext_resource type="Texture2D" uid="uid://c8aatpvs0exyg" path="res://Characters/power_strike_flame.svg" id="3_power_flame"]
+[ext_resource type="Texture2D" path="res://Characters/team_trail_flame.svg" id="4_team_trail_flame"]
+[ext_resource type="Script" uid="uid://cdlvwtam0s4ck" path="res://Characters/ball_shadow.gd" id="5_ball_shadow"]
+[ext_resource type="Texture2D" path="res://theodoreball.png" id="6_olb3j"]
+[ext_resource type="Script" path="res://Characters/soft_glow_fx.gd" id="7_soft_glow_fx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i3sgj"]
+bounce = 0.8
+
+[sub_resource type="Gradient" id="Gradient_speed_trail_glow"]
+offsets = PackedFloat32Array(0, 0.34, 0.72, 1)
+colors = PackedColorArray(1, 0.08, 0.2, 0, 1, 0.12, 0.3, 0.2, 1, 0.38, 0.58, 0.58, 1, 0.94, 0.96, 0.95)
+
+[sub_resource type="Gradient" id="Gradient_speed_trail_core"]
+offsets = PackedFloat32Array(0, 0.28, 0.68, 1)
+colors = PackedColorArray(1, 0.08, 0.2, 0, 1, 0.18, 0.38, 0.3, 1, 0.58, 0.72, 0.82, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_curve_trail"]
+offsets = PackedFloat32Array(0, 0.38, 1)
+colors = PackedColorArray(0.35, 0.89, 0.57, 0, 0.35, 0.89, 0.57, 0.55, 0.85, 1, 0.91, 0.95)
+
+[sub_resource type="Gradient" id="Gradient_time_skip_pass"]
+offsets = PackedFloat32Array(0, 0.35, 1)
+colors = PackedColorArray(0.45, 0.12, 0.95, 0, 0.55, 0.18, 1, 0.72, 0.9, 0.55, 1, 0.98)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ry8nw"]
+properties/0/path = NodePath(".:network_position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:network_linear_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:network_rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:network_angular_velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eovys"]
+radius = 33.244213
+
+[node name="Ball" type="RigidBody2D" unique_id=2104653354 groups=["football_balls"]]
+physics_interpolation_mode = 1
+collision_layer = 2
+collision_mask = 9
+physics_material_override = SubResource("PhysicsMaterial_i3sgj")
+gravity_scale = 0.0
+inertia = 0.62
+can_sleep = false
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 8
+linear_damp = 0.55
+angular_damp = 1.0
+script = ExtResource("1_xbjn5")
+speed_trail_start_speed = 900.0
+speed_trail_full_speed = 6200.0
+speed_trail_lifetime = 0.42
+speed_trail_point_spacing = 13.0
+speed_trail_max_points = 52
+speed_trail_max_core_width = 21.0
+collision_sound = ExtResource("2_074n8")
+collision_sound_volume_db = -10.0
+collision_sound_pitch_scale = 0.3
+
+[node name="BallShadow" type="Node2D" parent="." unique_id=2069906088]
+script = ExtResource("5_ball_shadow")
+
+[node name="SpeedTrailGlow" type="Line2D" parent="." unique_id=1912778755]
+visible = false
+top_level = true
+width = 28.0
+gradient = SubResource("Gradient_speed_trail_glow")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="SpeedTrailCore" type="Line2D" parent="." unique_id=596630446]
+visible = false
+top_level = true
+width = 11.0
+gradient = SubResource("Gradient_speed_trail_core")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="SpeedTrailParticles" type="CPUParticles2D" parent="." unique_id=945989491]
+z_index = 1
+emitting = false
+amount = 52
+texture = ExtResource("4_team_trail_flame")
+lifetime = 0.5
+randomness = 0.46
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 18.0
+direction = Vector2(-1, 0)
+spread = 24.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 125.0
+damping_min = 55.0
+damping_max = 155.0
+angular_velocity_min = -160.0
+angular_velocity_max = 160.0
+scale_amount_min = 0.42
+scale_amount_max = 0.92
+
+[node name="SpeedTrailEmbers" type="CPUParticles2D" parent="."]
+z_index = 2
+emitting = false
+amount = 34
+texture = ExtResource("4_team_trail_flame")
+lifetime = 0.76
+randomness = 0.58
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 14.0
+direction = Vector2(-1, 0)
+spread = 34.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 18.0
+initial_velocity_max = 82.0
+damping_min = 45.0
+damping_max = 125.0
+angular_velocity_min = -220.0
+angular_velocity_max = 220.0
+scale_amount_min = 0.16
+scale_amount_max = 0.44
+
+[node name="CurveTrail" type="Line2D" parent="." unique_id=1621282052]
+top_level = true
+width = 20.0
+gradient = SubResource("Gradient_curve_trail")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="TimeSkipPassTrail" type="Line2D" parent="." unique_id=805138187]
+top_level = true
+width = 24.0
+gradient = SubResource("Gradient_time_skip_pass")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1539740220]
+# The ball previously replicated four changing physics properties every network
+# process frame (up to the 240 FPS render cap). A fixed 60 Hz authority stream
+# is enough for gameplay; ball.gd smooths/extrapolates it for high-refresh clients.
+replication_interval = 0.016666666666666666
+replication_config = SubResource("SceneReplicationConfig_ry8nw")
+
+[node name="CollisionAudio" type="AudioStreamPlayer" parent="." unique_id=2100011025]
+stream = ExtResource("2_074n8")
+volume_db = -10.0
+pitch_scale = 0.3
+
+[node name="ContactAudio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 10000.0
+attenuation = 0.45
+
+[node name="PowerStrikeFlames" type="CPUParticles2D" parent="." unique_id=313594017]
+z_index = 2
+emitting = false
+amount = 42
+texture = ExtResource("3_power_flame")
+lifetime = 0.48
+emission_shape = 1
+emission_sphere_radius = 42.0
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 115.0
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+scale_amount_min = 0.65
+scale_amount_max = 1.25
+
+[node name="PowerStrikeEmbers" type="CPUParticles2D" parent="." unique_id=1482544631]
+z_index = 3
+emitting = false
+amount = 26
+texture = ExtResource("3_power_flame")
+lifetime = 0.8
+emission_shape = 1
+emission_sphere_radius = 35.0
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -240.0
+angular_velocity_max = 240.0
+scale_amount_min = 0.18
+scale_amount_max = 0.42
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2131822050]
+scale = Vector2(1.775, 1.775)
+shape = SubResource("CircleShape2D_eovys")
+
+[node name="BallGlowFX" type="Node2D" parent="."]
+z_index = 1
+script = ExtResource("7_soft_glow_fx")
+base_radius = 108.0
+glow_alpha = 0.44
+pulse_amount = 0.025
+pulse_speed = 0.8
+
+[node name="Ball" type="Sprite2D" parent="." unique_id=2090361205]
+physics_interpolation_mode = 2
+z_index = 2
+texture_filter = 4
+position = Vector2(-4.2351647e-22, 0)
+scale = Vector2(0.25711755, 0.26822037)
+texture = ExtResource("6_olb3j")
+offset = Vector2(6.5, -3)

@@ -1,0 +1,19 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="p" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ff8a96"/>
+      <stop offset=".5" stop-color="#e51f43"/>
+      <stop offset="1" stop-color="#710b22"/>
+    </linearGradient>
+  </defs>
+  <circle cx="35" cy="69" r="27" fill="#21060b" stroke="#ef2b49" stroke-width="5"/>
+  <circle cx="35" cy="69" r="17" fill="#b80f30"/>
+  <path d="M107 35C80 8 24 22 20 68c-3 32 30 52 59 32" fill="none" stroke="#26070d" stroke-width="22" stroke-linecap="round"/>
+  <path d="M107 35C80 8 24 22 20 68c-3 32 30 52 59 32" fill="none" stroke="url(#p)" stroke-width="11" stroke-linecap="round"/>
+  <path d="m66 78 47 8-30 39z" fill="#ff6177" stroke="#5f0a1c" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="103" cy="35" r="16" fill="#fff0f2" stroke="#bd1836" stroke-width="4"/>
+  <path d="m103 24 10 7-4 12H97l-4-12z" fill="#9f102b"/>
+  <path d="M18 33l17 9M8 49l18 5M9 92l20-4" stroke="#ff4964" stroke-width="5" stroke-linecap="round" opacity=".86"/>
+  <path d="m99 4 4 9 10 2-8 7 2 10-8-5-9 5 2-10-7-7 10-2z" fill="#ffd8a1"/>
+</svg>

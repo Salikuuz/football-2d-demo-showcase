@@ -1,0 +1,12 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs><radialGradient id="f"><stop stop-color="#ffd75b"/><stop offset=".5" stop-color="#ff6438"/><stop offset="1" stop-color="#b5132d"/></radialGradient></defs>
+  <path d="M65 49C44 36 44 17 53 2 27 16 33 37 14 52c4-15-3-27-14-35 9 29-6 42 4 66 8 18 27 28 53 22z" fill="#ff3030" stroke="#4a0b1b" stroke-width="4"/>
+  <path d="M54 51c-11-9-10-20-5-29-15 10-12 24-24 34 2-10-2-18-10-23 6 18-4 28 3 42 6 12 18 16 34 12z" fill="#ffb52e"/>
+  <path d="M45 69l-22 9 15 8-16 14 28-7z" fill="#ffe65e" stroke="#9e281e" stroke-width="3"/>
+  <circle cx="82" cy="77" r="44" fill="#2c0713" stroke="#ffb034" stroke-width="5"/>
+  <circle cx="82" cy="77" r="34" fill="url(#f)"/>
+  <path d="m82 49 17 12-6 20H71l-6-20zm-29 20 14 11-5 18-17-7zm58 0 9 22-17 7-5-18zM67 101h30l9 14H58z" fill="#68101a"/>
+  <path d="M69 49c9-6 21-5 30 1l-8 8c-6-3-13-3-20 0z" fill="#fff1b2"/>
+  <path d="M108 14l3 8 9 3-7 6v10l-8-5-9 3 3-9-5-7 9 1z" fill="#fff38b"/>
+</svg>

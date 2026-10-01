@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cnclgqbn21ob8"]
+
+[sub_resource type="Shader" id="Shader_mirage_brown"]
+code = "shader_type canvas_item;
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+    float highest = max(tex.r, max(tex.g, tex.b));
+    float lowest = min(tex.r, min(tex.g, tex.b));
+    float chroma = highest - lowest;
+    float luminance = dot(tex.rgb, vec3(0.299, 0.587, 0.114));
+    vec3 dark_brown = vec3(0.31, 0.18, 0.09);
+    vec3 light_brown = vec3(0.95, 0.72, 0.43);
+    vec3 brown = mix(dark_brown, light_brown, clamp(luminance * 1.35, 0.0, 1.0));
+    float colored_pixel = smoothstep(0.055, 0.18, chroma);
+    vec3 filtered = mix(tex.rgb, brown, colored_pixel);
+    COLOR = vec4(filtered, tex.a) * COLOR;
+}
+"
+
+[resource]
+shader = SubResource("Shader_mirage_brown")

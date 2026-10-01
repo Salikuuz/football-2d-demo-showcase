@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://uvd830xbvcyk"]
+
+[ext_resource type="Script" uid="uid://cn8rtik4xsg8m" path="res://Characters/goal.gd" id="1_8v4dr"]
+[ext_resource type="Texture2D" uid="uid://bwgcnoaoj662p" path="res://goal.jpg" id="1_pwwj0"]
+[ext_resource type="Texture2D" uid="uid://drmj4ns8a7tq6" path="res://Art/futsal_goal_chroma.png" id="2_goal_frame"]
+[ext_resource type="Texture2D" uid="uid://tacl48ofq402" path="res://Art/goal_shadow.svg" id="3_goal_shadow"]
+
+[sub_resource type="Shader" id="Shader_goal_chroma"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 source = texture(TEXTURE, UV);
+	float other = max(source.r, source.b);
+	float dominance = source.g - other;
+	float key = smoothstep(0.10, 0.38, dominance) * smoothstep(0.30, 0.76, source.g);
+	float alpha = 1.0 - key;
+	if (alpha < 0.025) {
+		discard;
+	}
+	source.g = min(source.g, other + 0.08 + (1.0 - key) * 0.10);
+	COLOR = vec4(source.rgb, source.a * alpha) * COLOR;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_goal_chroma"]
+shader = SubResource("Shader_goal_chroma")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwwj0"]
+size = Vector2(248, 1545.0001)
+
+[node name="Goal" type="Area2D" unique_id=2068351791 groups=["football_goals"]]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_8v4dr")
+
+[node name="GroundShadow" type="Sprite2D" parent="." unique_id=591405185]
+modulate = Color(0.02, 0.035, 0.05, 0.58)
+z_index = -2
+position = Vector2(98, 12)
+scale = Vector2(1, 5.875)
+texture = ExtResource("3_goal_shadow")
+
+[node name="TopPostGlow" type="Sprite2D" parent="." unique_id=1865607268]
+z_index = -1
+position = Vector2(124, -797.5)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("3_goal_shadow")
+
+[node name="BottomPostGlow" type="Sprite2D" parent="." unique_id=1133290518]
+z_index = -1
+position = Vector2(124, 747.5)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("3_goal_shadow")
+
+[node name="GoalFrame" type="Sprite2D" parent="." unique_id=717746294]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_goal_chroma")
+position = Vector2(88, -25)
+scale = Vector2(0.43, 0.975)
+texture = ExtResource("2_goal_frame")
+
+[node name="Goal" type="Sprite2D" parent="." unique_id=2009547440]
+visible = false
+z_index = 2
+position = Vector2(203.90883, 254.38849)
+scale = Vector2(0.6456693, 2.9341602)
+texture = ExtResource("1_pwwj0")
+centered = false
+offset = Vector2(-315.81, -379.32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=136276557]
+position = Vector2(124, -25.000008)
+scale = Vector2(1, 0.99999994)
+shape = SubResource("RectangleShape2D_pwwj0")
+
+[node name="MetaVisionDangerOutline" type="Line2D" parent="." unique_id=640498829]
+visible = false
+z_index = 8
+width = 22.0
+default_color = Color(1, 0.08, 0.12, 1)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true

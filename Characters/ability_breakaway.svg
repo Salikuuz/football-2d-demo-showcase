@@ -1,0 +1,22 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="gRun" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff861d"/>
+      <stop offset="0.55" stop-color="#ffb33b"/>
+      <stop offset="1" stop-color="#ffe28f"/>
+    </linearGradient>
+    <linearGradient id="gBall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7dc"/>
+      <stop offset="1" stop-color="#ffb84a"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 101h24M4 114h32" stroke="#ff9827" stroke-width="7" stroke-linecap="round"/>
+  <path d="M26 92h16M41 102h18" stroke="#ff6a25" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="74" cy="20" r="9" fill="#ffe79b" stroke="#5b3310" stroke-width="3"/>
+  <path d="M67 31c7 2 13 6 18 11l9 10c4 4 2 11-4 12-3 1-6 0-8-2l-8-7-8 9 18 16c4 3 4 10 0 14-4 4-10 4-14 1L49 77 37 91c-4 5-11 6-16 2-5-4-6-10-2-15l18-22c4-5 12-7 17-3l5 4 5-7-11-8c-5-4-6-10-2-15 4-5 10-6 16-3z" fill="#0d172b" stroke="#ffe392" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M69 34c6 2 10 4 14 8l8 8-9 2-9-7-9 11 21 18-5 6-23-18-14 15-6-4 15-20 8-11-12-9 5-6 12 7z" fill="url(#gRun)"/>
+  <circle cx="99" cy="82" r="12" fill="url(#gBall)" stroke="#ff9d30" stroke-width="5"/>
+  <path d="M91 82 98 87 95 96H86l-4-9z" fill="#ffd68a" opacity=".7"/>
+  <path d="M103 18l4 8 9 1-7 7 2 9-8-5-8 5 2-9-7-7 9-1z" fill="#fff07d" stroke="#6c4310" stroke-width="2"/>
+</svg>

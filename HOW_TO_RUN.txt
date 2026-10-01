@@ -1,0 +1,55 @@
+HYBRID AI POPULATION + SUCCESSIVE-HALVING TRAINER
+
+Wait for the current trainer to print CPU SELF-PLAY COMPLETE before installing.
+
+WHAT CHANGES
+- Generates 8 mutations per population round.
+- All 8 receive the same 2-match screening schedule.
+- Best 4 receive a second shared 2-match semifinal.
+- Best 2 receive the full 6-match evaluation.
+- Only provisional finalists enter the frozen benchmark, strongest first.
+- Every existing promotion, own-goal, collapse and normal-speed gate remains.
+
+MATCH COST BEFORE FROZEN BENCHMARKS
+Old exploration of 8 candidates: 8 x 6 = 48 matches.
+New tournament: 8x2 + 4x2 + 2x6 = 36 matches.
+
+INSTALL
+Extract into:
+C:\Users\salik\Documents\football-2d-
+
+Overwrite:
+training\hybrid_ai_trainer.gd
+
+Adds:
+training\hybrid_1v1_population_fast.json
+
+PREFLIGHT
+cd "C:\Users\salik\Documents\football-2d-"
+$Godot = "C:\Users\salik\Downloads\Godot_v4.7.1-stable_win64.exe"
+$Project = "C:\Users\salik\Documents\football-2d-"
+
+.\training\run_hybrid_ai.ps1 `
+  -Godot $Godot `
+  -Project $Project `
+  -Mode preflight `
+  -SkipImport
+
+HEADLESS 7X, TWO HOURS
+.\training\run_hybrid_ai.ps1 `
+  -Godot $Godot `
+  -Project $Project `
+  -Mode train `
+  -Config "res://training/hybrid_1v1_population_fast.json" `
+  -Hours 2 `
+  -Speed 7 `
+  -SkipImport
+
+EXPECTED STARTUP
+POPULATION SEARCH: 8 candidates -> 4 survivors -> 2 finalists
+
+The config resumes user://hybrid_ai/1v1/active.json.
+It must not print starting from safe default policy.
+
+This is staged population search inside one safe Godot process, not multiple
+simultaneous checkpoint writers.

@@ -1,0 +1,2204 @@
+[gd_scene format=3 uid="uid://c8ih3461ygx6v"]
+
+[ext_resource type="Script" uid="uid://cr4kq4xnyt8lo" path="res://Scenes/Teamselection.gd" id="1_hvj5s"]
+[ext_resource type="Texture2D" uid="uid://b87ro46kkhb4c" path="res://Download (3).png" id="1_i3sgj"]
+[ext_resource type="PackedScene" uid="uid://j4ougvk1x6w8" path="res://Characters/player.tscn" id="2_gsl2p"]
+[ext_resource type="Texture2D" uid="uid://cumou5yfupqk" path="res://field.png" id="2_l7lok"]
+[ext_resource type="PackedScene" uid="uid://j8da7247jlp2" path="res://Characters/ball.tscn" id="3_xks4p"]
+[ext_resource type="PackedScene" uid="uid://uvd830xbvcyk" path="res://Characters/goal.tscn" id="4_c6dkp"]
+[ext_resource type="Script" uid="uid://bwh3x2pup0s80" path="res://Scenes/match_manager.gd" id="5_i3sgj"]
+[ext_resource type="Script" uid="uid://jlabx16mc1pf" path="res://Scenes/scoreboard.gd" id="8_dvypr"]
+[ext_resource type="Script" uid="uid://bht58i38h6hw4" path="res://Scenes/connection_menu.gd" id="9_4nh5h"]
+[ext_resource type="Script" uid="uid://c53lsrk76u0xn" path="res://Scenes/network_manager.gd" id="9_v0cjs"]
+[ext_resource type="Script" uid="uid://d23qastokkhjj" path="res://Scenes/ability_hud.gd" id="10_ability_hud"]
+[ext_resource type="Script" path="res://Scenes/ability_fx_batch.gd" id="10_ability_fx_batch"]
+[ext_resource type="Texture2D" uid="uid://oeh60htna6j1" path="res://Characters/Alvin-alvin-and-the-chipmunks-3-chip-wrecked-27096005-993-1400.webp" id="11_u7adw"]
+[ext_resource type="Script" uid="uid://d03qp71jgdun0" path="res://Scenes/leaderboard.gd" id="12_leaderboard"]
+[ext_resource type="Script" uid="uid://4thce0qsnap4" path="res://Scenes/freeplay_hud.gd" id="13_freeplay_hud"]
+[ext_resource type="Script" uid="uid://y55gegk6nrpq" path="res://Scenes/match_camera.gd" id="16_match_camera"]
+[ext_resource type="Script" uid="uid://b3fnpddeo7pau" path="res://Scenes/quick_chat.gd" id="17_quick_chat"]
+[ext_resource type="Script" uid="uid://brvihh3vkad4g" path="res://Scenes/field_variant.gd" id="18_field_variant"]
+[ext_resource type="Script" uid="uid://cc53xfdtbow0y" path="res://Scenes/menu_audio_router.gd" id="19_menu_audio_router"]
+[ext_resource type="AudioStream" uid="uid://bvekmx1jch7yr" path="res://menuclicksounds.mp3" id="20_menu_click"]
+[ext_resource type="Script" uid="uid://dfpns6jk0fp47" path="res://Scenes/goal_replay_hud.gd" id="21_goal_replay"]
+[ext_resource type="Script" uid="uid://ecqbtjp8pvuc" path="res://Scenes/field_visuals.gd" id="22_field_visuals"]
+[ext_resource type="Script" uid="uid://cppmb6fcc044a" path="res://Scenes/field_atmosphere.gd" id="23_field_atmosphere"]
+[ext_resource type="Script" uid="uid://d3pgmc4ds44xy" path="res://Scenes/screen_visual_fx.gd" id="23_screen_visual_fx"]
+[ext_resource type="Texture2D" uid="uid://bwgcnoaoj662p" path="res://goal.jpg" id="24_coowj"]
+[ext_resource type="Texture2D" uid="uid://d10tvnqc84wdk" path="res://images (3).jpg" id="25_iugrc"]
+[ext_resource type="Texture2D" uid="uid://dt4p3tc3wi0gm" path="res://alvin-und-die-chipmunks-jahr-2007-usa-regie-tim-hill-b83rk8.jpg" id="26_rllx5"]
+[ext_resource type="Texture2D" uid="uid://cskjxxwrgrlcr" path="res://e3cdd63a-f9a6-4db2-8136-c353563a90b2.jpg" id="27_omb63"]
+[ext_resource type="Script" path="res://Scenes/mobile_web_controls.gd" id="28_mobile_web_controls"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ball_horizontal"]
+size = Vector2(6750, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ball_side"]
+size = Vector2(29.25, 957.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7phgy"]
+size = Vector2(160.98885, 8.970399)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piaew"]
+size = Vector2(33.263336, 89.35867)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfo4q"]
+size = Vector2(58.04814, 2.8641677)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmoo5"]
+size = Vector2(223.98111, 449.7777)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rui10"]
+size = Vector2(1465.825, 22.461716)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m3sy"]
+size = Vector2(3807.5322, 1539.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6446"]
+size = Vector2(880, 2166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8vdc"]
+size = Vector2(823, 2298.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3skj"]
+size = Vector2(10.630165, 43.139755)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s83mg"]
+size = Vector2(20, 0.417915)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_toq0x"]
+size = Vector2(379.17294, 3.2707214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_no3y7"]
+size = Vector2(31.368399, 0.8085022)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_scoreboard_panel"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.008, 0.026, 0.036, 0.88)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.42, 0.82, 1, 0.72)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.72)
+shadow_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_scoreboard_blue"]
+bg_color = Color(0.025, 0.12, 0.24, 0.96)
+border_width_left = 7
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18, 0.62, 1, 0.96)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.02, 0.18, 0.42, 0.72)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_scoreboard_clock"]
+bg_color = Color(0.012, 0.036, 0.05, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.68, 0.84, 0.92, 0.52)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_scoreboard_red"]
+bg_color = Color(0.25, 0.025, 0.05, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 7
+border_width_bottom = 2
+border_color = Color(1, 0.22, 0.3, 0.96)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.42, 0.015, 0.045, 0.72)
+shadow_size = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_scoreboard_aggregate"]
+bg_color = Color(0.16, 0.105, 0.018, 0.94)
+border_width_left = 2
+border_width_top = 1
+border_width_right = 2
+border_width_bottom = 1
+border_color = Color(1, 0.72, 0.16, 0.82)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_leaderboard_blue"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.018, 0.075, 0.13, 0.9)
+border_width_left = 5
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.62, 1, 0.85)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.01, 0.08, 0.2, 0.7)
+shadow_size = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_leaderboard_red"]
+content_margin_left = 14.0
+content_margin_top = 14.0
+content_margin_right = 14.0
+content_margin_bottom = 14.0
+bg_color = Color(0.13, 0.018, 0.035, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 5
+border_width_bottom = 2
+border_color = Color(1, 0.24, 0.31, 0.85)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0.22, 0.01, 0.025, 0.7)
+shadow_size = 8
+
+[sub_resource type="Shader" id="Shader_menu_rainbow"]
+code = "shader_type canvas_item;
+
+vec3 rainbow(float hue) {
+	vec3 shifted = fract(hue + vec3(0.0, 0.666667, 0.333333));
+	return clamp(abs(shifted * 6.0 - 3.0) - 1.0, 0.0, 1.0);
+}
+
+void fragment() {
+	vec4 glyph = texture(TEXTURE, UV);
+	float hue = fract(SCREEN_UV.x * 3.6 - TIME * 0.14);
+	vec3 color = rainbow(hue);
+	COLOR = vec4(color, glyph.a * COLOR.a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_menu_rainbow"]
+shader = SubResource("Shader_menu_rainbow")
+
+[sub_resource type="Shader" id="Shader_chapter_gold"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 glyph = texture(TEXTURE, UV);
+	vec3 deep_gold = vec3(0.72, 0.34, 0.035);
+	vec3 bright_gold = vec3(1.0, 0.86, 0.28);
+	vec3 pale_gold = vec3(1.0, 0.97, 0.68);
+	float vertical_glow = 1.0 - abs(UV.y * 2.0 - 1.0);
+	vec3 gold = mix(deep_gold, bright_gold, 0.35 + vertical_glow * 0.65);
+	float sweep_position = fract(TIME * 0.16) * 1.6 - 0.3;
+	float sweep = smoothstep(0.12, 0.0, abs(UV.x - sweep_position));
+	gold = mix(gold, pale_gold, sweep * 0.8);
+	COLOR = vec4(gold, glyph.a * COLOR.a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_chapter_gold"]
+shader = SubResource("Shader_chapter_gold")
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_goal_replay_panel"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.008, 0.02, 0.032, 0.94)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38, 0.82, 1, 0.92)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.65)
+shadow_size = 6
+
+[node name="Playfield" type="Node2D" unique_id=1599695223]
+
+[node name="Goal_Red" parent="." unique_id=2068351791 instance=ExtResource("4_c6dkp")]
+visible = false
+position = Vector2(7126, 2525)
+
+[node name="Goal_Blue" parent="." unique_id=1458467740 instance=ExtResource("4_c6dkp")]
+visible = false
+position = Vector2(-26, 2525)
+defending_team = "blue"
+
+[node name="BlueSpawns" type="Node2D" parent="." unique_id=112006624]
+
+[node name="BlueSpawns4" type="Marker2D" parent="BlueSpawns" unique_id=1076428356]
+position = Vector2(1750, 2500)
+
+[node name="BlueSpawns3" type="Marker2D" parent="BlueSpawns" unique_id=2019210865]
+position = Vector2(1050, 1500)
+
+[node name="BlueSpawns2" type="Marker2D" parent="BlueSpawns" unique_id=1600778186]
+position = Vector2(1050, 3500)
+
+[node name="BlueSpawns1" type="Marker2D" parent="BlueSpawns" unique_id=1943806505]
+position = Vector2(1050, 2500)
+
+[node name="BlueSpawns5" type="Marker2D" parent="BlueSpawns"]
+position = Vector2(1750, 1500)
+
+[node name="BlueSpawns6" type="Marker2D" parent="BlueSpawns"]
+position = Vector2(1750, 3500)
+
+[node name="RedSpawns" type="Node2D" parent="." unique_id=2025278542]
+
+[node name="RedSpawn3" type="Marker2D" parent="RedSpawns" unique_id=1933290754]
+position = Vector2(6300, 1500)
+
+[node name="RedSpawn1" type="Marker2D" parent="RedSpawns" unique_id=1508421841]
+position = Vector2(6300, 2500)
+
+[node name="RedSpawn2" type="Marker2D" parent="RedSpawns" unique_id=1833932252]
+position = Vector2(6300, 3500)
+
+[node name="RedSpawn4" type="Marker2D" parent="RedSpawns" unique_id=881023211]
+position = Vector2(5500, 2500)
+
+[node name="RedSpawn5" type="Marker2D" parent="RedSpawns"]
+position = Vector2(5500, 1500)
+
+[node name="RedSpawn6" type="Marker2D" parent="RedSpawns"]
+position = Vector2(5500, 3500)
+
+[node name="Backgrounds" type="Node2D" parent="." unique_id=2020501720 node_paths=PackedStringArray("match_manager")]
+script = ExtResource("18_field_variant")
+match_manager = NodePath("../MatchManager")
+color_strength = null
+arena_bounds = null
+
+[node name="Pitch" type="Sprite2D" parent="Backgrounds" unique_id=2145360293]
+z_index = -1
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("1_i3sgj")
+centered = false
+
+[node name="Field" type="Sprite2D" parent="Backgrounds" unique_id=1077240842]
+position = Vector2(10928.375, 2502.75)
+scale = Vector2(7.3679786, 7.716316)
+texture = ExtResource("2_l7lok")
+
+[node name="Field2" type="Sprite2D" parent="Backgrounds" unique_id=603401767]
+position = Vector2(-2397.0002, 2516.75)
+scale = Vector2(4.903473, 7.4244013)
+texture = ExtResource("2_l7lok")
+
+[node name="Field3" type="Sprite2D" parent="Backgrounds" unique_id=1015123811]
+position = Vector2(4910.875, -1340)
+scale = Vector2(19.930796, 3.9640718)
+texture = ExtResource("2_l7lok")
+
+[node name="Field4" type="Sprite2D" parent="Backgrounds" unique_id=381322319]
+position = Vector2(4847.875, 5920)
+scale = Vector2(19.847038, 2.747006)
+texture = ExtResource("2_l7lok")
+
+[node name="FieldVisuals" type="Node2D" parent="." unique_id=1249950663]
+script = ExtResource("22_field_visuals")
+
+[node name="FieldAtmosphere" type="Node2D" parent="." unique_id=2086106737 node_paths=PackedStringArray("match_manager")]
+script = ExtResource("23_field_atmosphere")
+match_manager = NodePath("../MatchManager")
+
+[node name="AbilityFxBatch" type="Node2D" parent="."]
+z_index = 2
+script = ExtResource("10_ability_fx_batch")
+
+[node name="Ball" parent="." unique_id=2104653354 instance=ExtResource("3_xks4p")]
+physics_interpolation_mode = 1
+position = Vector2(3668.9, 2482.34)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=372308764 node_paths=PackedStringArray("match_manager", "players_parent", "ball")]
+physics_interpolation_mode = 2
+process_callback = 1
+position = Vector2(3668.9, 2482.34)
+offset = Vector2(-36.82, 0)
+zoom = Vector2(0.14, 0.14)
+script = ExtResource("16_match_camera")
+match_manager = NodePath("../MatchManager")
+players_parent = NodePath("../Players")
+ball = NodePath("../Ball")
+maximum_shake_offset = 63.0
+
+[node name="Ballspawn" type="Marker2D" parent="." unique_id=998575532]
+position = Vector2(3668.9, 2480)
+
+[node name="MatchManager" type="Node" parent="." unique_id=108808477 node_paths=PackedStringArray("players_parent", "red_goal", "blue_goal", "ball", "ball_spawn", "red_player_spawns", "blue_player_spawns")]
+script = ExtResource("5_i3sgj")
+regulation_seconds = 300.0
+minimum_shot_speed = 200.0
+save_goal_mouth_margin = 280.0
+goal_sound_volume_db = -16.1
+goal_sound_pitch_scale = 0.8
+players_parent = NodePath("../Players")
+training_dummy_scene = ExtResource("2_gsl2p")
+red_goal = NodePath("../Goal_Red")
+blue_goal = NodePath("../Goal_Blue")
+ball = NodePath("../Ball")
+ball_spawn = NodePath("../Ballspawn")
+red_player_spawns = [NodePath("../RedSpawns/RedSpawn1"), NodePath("../RedSpawns/RedSpawn2"), NodePath("../RedSpawns/RedSpawn3"), NodePath("../RedSpawns/RedSpawn4"), NodePath("../RedSpawns/RedSpawn5"), NodePath("../RedSpawns/RedSpawn6")]
+blue_player_spawns = [NodePath("../BlueSpawns/BlueSpawns1"), NodePath("../BlueSpawns/BlueSpawns2"), NodePath("../BlueSpawns/BlueSpawns3"), NodePath("../BlueSpawns/BlueSpawns4"), NodePath("../BlueSpawns/BlueSpawns5"), NodePath("../BlueSpawns/BlueSpawns6")]
+
+[node name="GoalAudio" type="AudioStreamPlayer" parent="MatchManager" unique_id=1054783684]
+volume_db = -16.1
+pitch_scale = 0.8
+
+[node name="BallFieldBoundary" type="StaticBody2D" parent="." unique_id=1179275971]
+collision_layer = 8
+collision_mask = 2
+
+[node name="TopLine" type="CollisionShape2D" parent="BallFieldBoundary" unique_id=16978321]
+position = Vector2(3675, 750)
+shape = SubResource("RectangleShape2D_ball_horizontal")
+
+[node name="BottomLine" type="CollisionShape2D" parent="BallFieldBoundary" unique_id=833663918]
+position = Vector2(3675, 4250)
+shape = SubResource("RectangleShape2D_ball_horizontal")
+
+[node name="LeftUpperLine" type="CollisionShape2D" parent="BallFieldBoundary" unique_id=624738739]
+position = Vector2(303.375, 1248.75)
+shape = SubResource("RectangleShape2D_ball_side")
+
+[node name="LeftLowerLine" type="CollisionShape2D" parent="BallFieldBoundary" unique_id=1930574148]
+position = Vector2(303.375, 3751.25)
+shape = SubResource("RectangleShape2D_ball_side")
+
+[node name="RightUpperLine" type="CollisionShape2D" parent="BallFieldBoundary" unique_id=2145643477]
+position = Vector2(7044.625, 1248.75)
+shape = SubResource("RectangleShape2D_ball_side")
+
+[node name="RightLowerLine" type="CollisionShape2D" parent="BallFieldBoundary" unique_id=507805199]
+position = Vector2(7044.625, 3751.25)
+shape = SubResource("RectangleShape2D_ball_side")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=38469561]
+
+[node name="Topwall" type="CollisionShape2D" parent="Walls" unique_id=246090255]
+position = Vector2(3622.35, 233)
+scale = Vector2(46.62, 46.62)
+shape = SubResource("RectangleShape2D_7phgy")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls" unique_id=1746121343]
+position = Vector2(-379.00003, 4060.0002)
+scale = Vector2(17.62, 17.62)
+shape = SubResource("RectangleShape2D_piaew")
+
+[node name="Bottomwall" type="CollisionShape2D" parent="Walls" unique_id=877512497]
+position = Vector2(3748.5, 4761)
+scale = Vector2(141.865, 141.865)
+shape = SubResource("RectangleShape2D_qfo4q")
+
+[node name="Rightwall" type="CollisionShape2D" parent="Walls" unique_id=903448957]
+position = Vector2(7867.9995, 776)
+scale = Vector2(4.33, 4.33)
+shape = SubResource("RectangleShape2D_rmoo5")
+
+[node name="Rightwall2" type="CollisionShape2D" parent="Walls" unique_id=2134858468]
+position = Vector2(7769, 3257)
+shape = SubResource("RectangleShape2D_rui10")
+
+[node name="Goalborderright" type="CollisionShape2D" parent="Walls" unique_id=115374956]
+position = Vector2(9310.767, 2523.75)
+shape = SubResource("RectangleShape2D_0m3sy")
+
+[node name="LeftWall2" type="CollisionShape2D" parent="Walls" unique_id=284990699]
+position = Vector2(-509, 802)
+shape = SubResource("RectangleShape2D_i6446")
+
+[node name="Goalborderleft" type="CollisionShape2D" parent="Walls" unique_id=2146746482]
+position = Vector2(-518, 2421)
+shape = SubResource("RectangleShape2D_s8vdc")
+
+[node name="rightwall4" type="CollisionShape2D" parent="Walls" unique_id=1730784704]
+position = Vector2(7576, 3890)
+scale = Vector2(31.34, 31.34)
+shape = SubResource("RectangleShape2D_q3skj")
+
+[node name="rightwall6" type="CollisionShape2D" parent="Walls" unique_id=812280289]
+position = Vector2(7702, 1740)
+scale = Vector2(66.76, 66.76)
+shape = SubResource("RectangleShape2D_s83mg")
+
+[node name="leftwall6" type="CollisionShape2D" parent="Walls" unique_id=1544186187]
+position = Vector2(-944.99994, 3264.9998)
+scale = Vector2(6.65, 6.65)
+shape = SubResource("RectangleShape2D_toq0x")
+
+[node name="leftwall555" type="CollisionShape2D" parent="Walls" unique_id=570011148]
+position = Vector2(-62, 1733)
+scale = Vector2(24.335, 24.335)
+shape = SubResource("RectangleShape2D_no3y7")
+
+[node name="ScreenVisualFX" type="CanvasLayer" parent="." unique_id=1421330905 node_paths=PackedStringArray("match_manager")]
+script = ExtResource("23_screen_visual_fx")
+match_manager = NodePath("../MatchManager")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1950447447]
+
+[node name="MobileWebControls" type="Control" parent="HUD" node_paths=PackedStringArray("match_manager", "players_parent")]
+visible = false
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+z_index = 90
+script = ExtResource("28_mobile_web_controls")
+match_manager = NodePath("../../MatchManager")
+players_parent = NodePath("../../Players")
+
+[node name="MenuAudioRouter" type="Node" parent="HUD" unique_id=1495310592 node_paths=PackedStringArray("ui_root", "click_audio")]
+process_mode = 3
+script = ExtResource("19_menu_audio_router")
+ui_root = NodePath("..")
+click_audio = NodePath("ClickAudio")
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="HUD/MenuAudioRouter" unique_id=1963036110]
+process_mode = 3
+stream = ExtResource("20_menu_click")
+volume_db = -15.0
+max_polyphony = 8
+
+[node name="Teamselection" type="Control" parent="HUD" unique_id=543759078 node_paths=PackedStringArray("match_manager", "players_parent", "network_manager")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+script = ExtResource("1_hvj5s")
+match_manager = NodePath("../../MatchManager")
+players_parent = NodePath("../../Players")
+network_manager = NodePath("../../NetworkManager")
+curve_shot_difficulty = 3
+elastic_step_difficulty = 2
+meta_vision_difficulty = 1
+copycat_difficulty = 2
+reflex_block_difficulty = 1
+boogie_woogie_difficulty = 1
+return_tag_difficulty = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/Teamselection" unique_id=52551257]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -97.43
+offset_bottom = 80.57001
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentRow" type="HBoxContainer" parent="HUD/Teamselection/CenterContainer" unique_id=929422658]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 13
+
+[node name="TeamPanel" type="PanelContainer" parent="HUD/Teamselection/CenterContainer/ContentRow" unique_id=219768674]
+custom_minimum_size = Vector2(350, 0)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TeamVBox" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel" unique_id=176419887]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="LobbyTitle" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=500510031]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "MATCH LOBBY"
+horizontal_alignment = 1
+
+[node name="HalftimeReturnButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=1169326649]
+visible = false
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Return to Game 1 Scoreboard"
+
+[node name="TeamButtons" type="HBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=1066781992]
+layout_mode = 2
+
+[node name="BlueButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/TeamButtons" unique_id=1964195798]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.35, 0.65, 1, 1)
+theme_override_colors/font_hover_color = Color(0.55, 0.78, 1, 1)
+theme_override_font_sizes/font_size = 13
+text = "Join Blue"
+
+[node name="RedButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/TeamButtons" unique_id=965243535]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_colors/font_hover_color = Color(1, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "Join Red"
+
+[node name="LeaveTeamButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=110002108]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Leave Team"
+
+[node name="MainMenuButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=1793364817]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+tooltip_text = "Leave the current lobby and return to the main menu."
+theme_override_font_sizes/font_size = 13
+text = "BACK TO MAIN MENU"
+
+[node name="ReadyButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=812310912]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.55, 1, 0.65, 1)
+theme_override_font_sizes/font_size = 13
+text = "READY UP"
+
+[node name="StartButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=479992763]
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "WAITING FOR PLAYERS"
+
+[node name="RosterTitle" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=712962245]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "PLAYER ROSTER"
+horizontal_alignment = 1
+
+[node name="RosterColumns" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=1719208085]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TopTeams" type="HBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns" unique_id=369612244]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TeamOne" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/TopTeams" unique_id=1533993153]
+custom_minimum_size = Vector2(0, 84)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/TopTeams/TeamOne" unique_id=566128461]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.65, 1, 1)
+theme_override_font_sizes/font_size = 12
+text = "BLUE"
+horizontal_alignment = 1
+
+[node name="Players" type="RichTextLabel" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/TopTeams/TeamOne" unique_id=2048954585]
+custom_minimum_size = Vector2(0, 61)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]- None -[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="RosterGap" type="Control" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/TopTeams" unique_id=1976555110]
+custom_minimum_size = Vector2(43, 0)
+layout_mode = 2
+
+[node name="TeamTwo" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/TopTeams" unique_id=1206427873]
+custom_minimum_size = Vector2(0, 84)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/TopTeams/TeamTwo" unique_id=661948362]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_font_sizes/font_size = 12
+text = "RED"
+horizontal_alignment = 1
+
+[node name="Players" type="RichTextLabel" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/TopTeams/TeamTwo" unique_id=682423422]
+custom_minimum_size = Vector2(0, 61)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]- None -[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Unassigned" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns" unique_id=85116501]
+custom_minimum_size = Vector2(0, 58)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/Unassigned" unique_id=1160037971]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "UNASSIGNED"
+horizontal_alignment = 1
+
+[node name="Players" type="RichTextLabel" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/Unassigned" unique_id=1942702405]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]- None -[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="Spectators" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns" unique_id=1018629979]
+custom_minimum_size = Vector2(0, 46)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/Spectators" unique_id=486776429]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.78, 0.88, 1)
+theme_override_font_sizes/font_size = 12
+text = "SPECTATORS"
+horizontal_alignment = 1
+
+[node name="Players" type="RichTextLabel" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox/RosterColumns/Spectators" unique_id=111621606]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[center]- None -[/center]"
+fit_content = true
+scroll_active = false
+
+[node name="SpectatorButton" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=1929522251]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.78, 0.88, 1)
+theme_override_font_sizes/font_size = 12
+text = "Join Spectators"
+
+[node name="StatusLabel" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/TeamPanel/TeamVBox" unique_id=1658740991]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Choose a team."
+horizontal_alignment = 1
+
+[node name="SideTabs" type="TabContainer" parent="HUD/Teamselection/CenterContainer/ContentRow" unique_id=1694085811]
+custom_minimum_size = Vector2(528, 480)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Abilities" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs" unique_id=2033211228]
+layout_mode = 2
+theme_override_constants/separation = 1
+metadata/_tab_index = 0
+
+[node name="Title" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1041516816]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "ABILITIES"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=760093247]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Abilities are unique per team.  1 star: Easy  |  3 stars: Hard"
+horizontal_alignment = 1
+
+[node name="AbilityNone" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=531052330]
+layout_mode = 2
+tooltip_text = "Equip no special ability. Your movement, charged shots, and team play remain fully available."
+text = "No Ability"
+
+[node name="AttackHeader" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=226748971]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.38, 0.3, 1)
+theme_override_font_sizes/font_size = 16
+text = "ATTACK"
+horizontal_alignment = 1
+
+[node name="Ability1" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=995819193]
+layout_mode = 2
+tooltip_text = "Gain two short explosive dashes for beating a defender while keeping the ball within playing distance. The full cooldown starts after the final dash."
+text = "Burst Dribble"
+
+[node name="Ability9" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=134724804]
+layout_mode = 2
+tooltip_text = "Tap Ability before an arriving ball to deaden it with a clean trap. To volley, hold Shoot and your desired direction, then press Ability before the ball reaches you."
+disabled = true
+text = "Trap or Volley"
+
+[node name="Ability3" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1416744935]
+layout_mode = 2
+tooltip_text = "Enter a temporary power state that makes charged shots dramatically heavier. A struck ball ignites and stays empowered until it loses speed."
+disabled = true
+text = "Power Strike"
+
+[node name="Ability4" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1490261051]
+layout_mode = 2
+tooltip_text = "Temporarily increase movement speed and acceleration for breakaways, recovery runs, and reaching passes before the opposition."
+disabled = true
+text = "Overdrive"
+
+[node name="PlaymakerHeader" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1893219806]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.58, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "PLAYMAKER"
+horizontal_alignment = 1
+
+[node name="Ability2" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1996004137]
+layout_mode = 2
+tooltip_text = "Empower your next charged shot to bend around one nearby defender in its path. With no close blocker, the ball follows a lighter natural curve."
+disabled = true
+text = "Curve Shot"
+
+[node name="Ability10" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=2145620975]
+layout_mode = 2
+tooltip_text = "Gain two fast orbiting steps around the ball. Use them to switch your shooting angle or wrong-foot a defender without leaving kick range."
+disabled = true
+text = "Elastic Step"
+
+[node name="Ability5" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1155688876]
+layout_mode = 2
+tooltip_text = "When the ball is in kick range, erase its momentum and snap it behind you for an instant turn, escape, or backward pass."
+disabled = true
+text = "Phantom Heel"
+
+[node name="Ability8" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1570213033]
+layout_mode = 2
+tooltip_text = "Strike an instant high-speed pass that decelerates sharply and stops near its destination, creating a precise first-time play for a teammate."
+disabled = true
+text = "Dead Zone Pass"
+
+[node name="Ability11" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=62108288]
+layout_mode = 2
+tooltip_text = "Reveal long ball trajectories, wall bounces, interception points, and dangerous goal paths for perfect reads while the effect is active."
+disabled = true
+text = "Meta Vision"
+
+[node name="Ability16" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1517960188]
+layout_mode = 2
+tooltip_text = "Swap positions with the nearest teammate or opponent. Your arrival creates a shockwave that pushes the ball and nearby enemies away."
+disabled = true
+text = "Boogie Woogie"
+
+[node name="FlexibleHeader" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=918437805]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68, 0.9, 0.55, 1)
+theme_override_font_sizes/font_size = 16
+text = "FLEXIBLE"
+horizontal_alignment = 1
+
+[node name="Ability12" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1588565268]
+layout_mode = 2
+tooltip_text = "Capture the next eligible teammate ability and hold it for up to 12 seconds or until you use it. The copy fires at 90% strength with 1.5 seconds extra cooldown. Goalkeeper's Reach cannot be copied."
+disabled = true
+text = "Copycat"
+
+[node name="DefenseHeader" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=765207959]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.68, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "DEFENSE"
+horizontal_alignment = 1
+
+[node name="Ability6" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=1362580396]
+layout_mode = 2
+tooltip_text = "Enter a physical power state where your kicks can launch opposing players away, opening space for yourself and your teammates."
+disabled = true
+text = "Enforcer"
+
+[node name="Ability7" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=2002166094]
+layout_mode = 2
+tooltip_text = "Dive rapidly in your movement direction and control one ball caught inside the extended reach. Best used on shots normal movement cannot reach."
+disabled = true
+text = "Goalkeeper's Reach"
+
+[node name="Ability13" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=2039328392]
+layout_mode = 2
+tooltip_text = "Guard a forward cone for a brief moment and deflect one incoming ball sideways, turning a save or interception into a counterattack."
+disabled = true
+text = "Reflex Block"
+
+[node name="Ability14" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=946850624]
+layout_mode = 2
+tooltip_text = "Instantly nullify the velocity of one nearby ball. Kill a dangerous shot, interrupt a dribble, or bring a difficult ball under control."
+disabled = true
+text = "Iron Anchor"
+
+[node name="Ability15" type="Button" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/Abilities" unique_id=2134802521]
+layout_mode = 2
+tooltip_text = "Slip into shadow and rush through a nearby opponent, reappearing behind them. Set the ball beyond the defender first to complete the escape."
+disabled = true
+text = "Mirage Step"
+
+[node name="HostOptions" type="ScrollContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs" unique_id=1479827965]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+
+[node name="Content" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions" unique_id=585968431]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=956370273]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "HOST MATCH OPTIONS"
+horizontal_alignment = 1
+
+[node name="LengthLabel" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=2064631354]
+layout_mode = 2
+text = "Game length (minutes)"
+
+[node name="MatchMinutes" type="SpinBox" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=263779172]
+layout_mode = 2
+min_value = 0.5
+max_value = 60.0
+step = 0.5
+value = 2.5
+suffix = " min"
+
+[node name="GoalsLabel" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=1999246402]
+layout_mode = 2
+text = "Goals needed to win (single match)"
+
+[node name="GoalsToWin" type="SpinBox" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=2082666975]
+layout_mode = 2
+tooltip_text = "Champions League mode always plays both full timed legs, so this target only applies to a single match."
+min_value = 1.0
+max_value = 99.0
+value = 10.0
+suffix = " goals"
+
+[node name="TournamentMode" type="CheckButton" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=573856284]
+layout_mode = 2
+tooltip_text = "Play two timed legs. The aggregate score decides the winner; a tie after leg two goes to two extra-time periods, then penalties."
+text = "Champions League mode (2 legs + aggregate)"
+
+[node name="CPUSeparator" type="HSeparator" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=1643831873]
+layout_mode = 2
+
+[node name="CPUTitle" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=1124408155]
+layout_mode = 2
+text = "CPU PLAYERS"
+horizontal_alignment = 1
+
+[node name="BlueCPURow" type="HBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=1887963056]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content/BlueCPURow" unique_id=1382652447]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.35, 0.68, 1, 1)
+text = "Blue CPU players"
+
+[node name="Count" type="SpinBox" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content/BlueCPURow" unique_id=1483180631]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+tooltip_text = "Exact number of CPU players requested for Blue. Humans still count toward the four-player team limit."
+max_value = 4.0
+suffix = " CPUs"
+
+[node name="RedCPURow" type="HBoxContainer" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=839453152]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content/RedCPURow" unique_id=923423819]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.35, 0.38, 1)
+text = "Red CPU players"
+
+[node name="Count" type="SpinBox" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content/RedCPURow" unique_id=1845367048]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+tooltip_text = "Exact number of CPU players requested for Red. Humans still count toward the four-player team limit."
+max_value = 4.0
+suffix = " CPUs"
+
+[node name="CurrentSettingsLabel" type="Label" parent="HUD/Teamselection/CenterContainer/ContentRow/SideTabs/HostOptions/Content" unique_id=1979905093]
+layout_mode = 2
+text = "Current: 2.5 min | First to 10 goals"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AbilityHUD" type="Control" parent="HUD" unique_id=426324324 node_paths=PackedStringArray("players_parent", "match_manager")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.075
+offset_top = 4.86
+offset_right = -30.47998
+offset_bottom = 22.519958
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_ability_hud")
+players_parent = NodePath("../../Players")
+match_manager = NodePath("../../MatchManager")
+
+[node name="Panel" type="PanelContainer" parent="HUD/AbilityHUD" unique_id=1246007634]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -108.0
+offset_right = 118.0
+offset_bottom = -24.0
+grow_vertical = 0
+pivot_offset = Vector2(39, 42)
+
+[node name="HBox" type="HBoxContainer" parent="HUD/AbilityHUD/Panel" unique_id=574357319]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="AccentBar" type="ColorRect" parent="HUD/AbilityHUD/Panel/HBox" unique_id=721671603]
+custom_minimum_size = Vector2(3, 0)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.3, 1, 0.62, 1)
+
+[node name="IconFrame" type="PanelContainer" parent="HUD/AbilityHUD/Panel/HBox" unique_id=1080976769]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="IconStack" type="Control" parent="HUD/AbilityHUD/Panel/HBox/IconFrame" unique_id=14907352]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="HUD/AbilityHUD/Panel/HBox/IconFrame/IconStack" unique_id=2005939030]
+texture_filter = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CooldownOverlay" type="ColorRect" parent="HUD/AbilityHUD/Panel/HBox/IconFrame/IconStack" unique_id=511836458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.004, 0.012, 0.016, 0.82)
+
+[node name="ActiveBorder" type="Panel" parent="HUD/AbilityHUD/Panel/HBox/IconFrame/IconStack" unique_id=534032943]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Info" type="VBoxContainer" parent="HUD/AbilityHUD/Panel/HBox" unique_id=390063681]
+custom_minimum_size = Vector2(92, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="HeaderRow" type="HBoxContainer" parent="HUD/AbilityHUD/Panel/HBox/Info" unique_id=1312938877]
+layout_mode = 2
+theme_override_constants/separation = 3
+
+[node name="RoleLabel" type="Label" parent="HUD/AbilityHUD/Panel/HBox/Info/HeaderRow" unique_id=1720180529]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 9
+text = "READY"
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="KeyChip" type="PanelContainer" parent="HUD/AbilityHUD/Panel/HBox/Info/HeaderRow" unique_id=1602142326]
+layout_mode = 2
+
+[node name="KeyContent" type="HBoxContainer" parent="HUD/AbilityHUD/Panel/HBox/Info/HeaderRow/KeyChip" unique_id=619921857]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="KeyIcon" type="TextureRect" parent="HUD/AbilityHUD/Panel/HBox/Info/HeaderRow/KeyChip/KeyContent" unique_id=344895924]
+texture_filter = 4
+visible = false
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="KeyLabel" type="Label" parent="HUD/AbilityHUD/Panel/HBox/Info/HeaderRow/KeyChip/KeyContent" unique_id=109929782]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.9, 0.94, 1)
+theme_override_font_sizes/font_size = 8
+text = "SHIFT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AbilityName" type="Label" parent="HUD/AbilityHUD/Panel/HBox/Info" unique_id=341396350]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.985, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 9
+text = ""
+text_overrun_behavior = 3
+
+[node name="Status" type="Label" parent="HUD/AbilityHUD/Panel/HBox/Info" unique_id=811797272]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.38, 1, 0.65, 1)
+theme_override_font_sizes/font_size = 10
+text = "READY"
+
+[node name="CooldownBar" type="ProgressBar" parent="HUD/AbilityHUD/Panel/HBox/Info" unique_id=1876287475]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+mouse_filter = 2
+value = 1.0
+show_percentage = false
+
+[node name="InputHints" type="PanelContainer" parent="HUD/AbilityHUD" unique_id=409822331]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -214.0
+offset_top = -64.0
+offset_right = -18.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Grid" type="GridContainer" parent="HUD/AbilityHUD/InputHints" unique_id=95190570]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="ShootHint" type="HBoxContainer" parent="HUD/AbilityHUD/InputHints/Grid" unique_id=1421218036]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ActionLabel" type="Label" parent="HUD/AbilityHUD/InputHints/Grid/ShootHint" unique_id=930236260]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "SHOOT"
+vertical_alignment = 1
+
+[node name="PromptIcon" type="TextureRect" parent="HUD/AbilityHUD/InputHints/Grid/ShootHint" unique_id=673400157]
+texture_filter = 4
+visible = false
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PromptLabel" type="Label" parent="HUD/AbilityHUD/InputHints/Grid/ShootHint" unique_id=1887591345]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46, 1, 0.67, 1)
+theme_override_font_sizes/font_size = 8
+text = "SPACE"
+vertical_alignment = 1
+
+[node name="PassHint" type="HBoxContainer" parent="HUD/AbilityHUD/InputHints/Grid" unique_id=1360159840]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ActionLabel" type="Label" parent="HUD/AbilityHUD/InputHints/Grid/PassHint" unique_id=445249244]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "PASS"
+vertical_alignment = 1
+
+[node name="PromptIcon" type="TextureRect" parent="HUD/AbilityHUD/InputHints/Grid/PassHint" unique_id=282552778]
+texture_filter = 4
+visible = false
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PromptLabel" type="Label" parent="HUD/AbilityHUD/InputHints/Grid/PassHint" unique_id=364563989]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46, 1, 0.67, 1)
+theme_override_font_sizes/font_size = 8
+text = "TAB"
+vertical_alignment = 1
+
+[node name="TeamInputHints" type="PanelContainer" parent="HUD/AbilityHUD" unique_id=607569850]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 210.0
+offset_top = -68.0
+offset_right = 370.0
+offset_bottom = -20.0
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Grid" type="GridContainer" parent="HUD/AbilityHUD/TeamInputHints" unique_id=338351921]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="QuickChatHint" type="HBoxContainer" parent="HUD/AbilityHUD/TeamInputHints/Grid" unique_id=919430700]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ActionLabel" type="Label" parent="HUD/AbilityHUD/TeamInputHints/Grid/QuickChatHint" unique_id=621110898]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "QUICK CHAT"
+vertical_alignment = 1
+
+[node name="PromptIcon" type="TextureRect" parent="HUD/AbilityHUD/TeamInputHints/Grid/QuickChatHint" unique_id=1027637293]
+texture_filter = 4
+visible = false
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PromptLabel" type="Label" parent="HUD/AbilityHUD/TeamInputHints/Grid/QuickChatHint" unique_id=1332974688]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46, 1, 0.67, 1)
+theme_override_font_sizes/font_size = 8
+text = "C"
+vertical_alignment = 1
+
+[node name="PassRequestHint" type="HBoxContainer" parent="HUD/AbilityHUD/TeamInputHints/Grid" unique_id=1456220433]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ActionLabel" type="Label" parent="HUD/AbilityHUD/TeamInputHints/Grid/PassRequestHint" unique_id=1608738773]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.94, 0.97, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "REQUEST PASS"
+vertical_alignment = 1
+
+[node name="PromptIcon" type="TextureRect" parent="HUD/AbilityHUD/TeamInputHints/Grid/PassRequestHint" unique_id=51781702]
+texture_filter = 4
+visible = false
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PromptLabel" type="Label" parent="HUD/AbilityHUD/TeamInputHints/Grid/PassRequestHint" unique_id=1979475851]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46, 1, 0.67, 1)
+theme_override_font_sizes/font_size = 8
+text = "R"
+vertical_alignment = 1
+
+[node name="FreeplayHUD" type="Control" parent="HUD" unique_id=2108838892 node_paths=PackedStringArray("match_manager", "network_manager")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("13_freeplay_hud")
+match_manager = NodePath("../../MatchManager")
+network_manager = NodePath("../../NetworkManager")
+
+[node name="Panel" type="PanelContainer" parent="HUD/FreeplayHUD" unique_id=660672559]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -560.0
+offset_top = 12.0
+offset_right = 560.0
+offset_bottom = 110.0
+grow_horizontal = 2
+
+[node name="VBox" type="VBoxContainer" parent="HUD/FreeplayHUD/Panel" unique_id=1478460131]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="HUD/FreeplayHUD/Panel/VBox" unique_id=909383385]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.9, 0.56, 1)
+theme_override_font_sizes/font_size = 20
+text = "FREEPLAY"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="HUD/FreeplayHUD/Panel/VBox" unique_id=498440763]
+visible = false
+layout_mode = 2
+text = "No ability cooldowns"
+horizontal_alignment = 1
+
+[node name="TrainingActions" type="GridContainer" parent="HUD/FreeplayHUD/Panel/VBox" unique_id=1400356082]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="ToggleAbilitiesButton" type="Button" parent="HUD/FreeplayHUD/Panel/VBox/TrainingActions" unique_id=1872522825]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Choose Ability"
+
+[node name="SendBallButton" type="Button" parent="HUD/FreeplayHUD/Panel/VBox/TrainingActions" unique_id=970072088]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Places the ball at range and fires it directly toward you."
+text = "Send Ball At Me"
+
+[node name="ResetBallButton" type="Button" parent="HUD/FreeplayHUD/Panel/VBox/TrainingActions" unique_id=2063725127]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reset Ball"
+
+[node name="ResetPlayerButton" type="Button" parent="HUD/FreeplayHUD/Panel/VBox/TrainingActions" unique_id=1422034578]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Reset your player and the training dummy."
+text = "Reset Player"
+
+[node name="ExitButton" type="Button" parent="HUD/FreeplayHUD/Panel/VBox/TrainingActions" unique_id=532643593]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Exit Freeplay"
+
+[node name="AbilityScroll" type="ScrollContainer" parent="HUD/FreeplayHUD/Panel/VBox" unique_id=489125641]
+visible = false
+custom_minimum_size = Vector2(680, 480)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="AbilityColumns" type="HBoxContainer" parent="HUD/FreeplayHUD/Panel/VBox/AbilityScroll" unique_id=912176564]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Scoreboard" type="Control" parent="HUD" unique_id=833034980 node_paths=PackedStringArray("match_manager", "network_manager")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_dvypr")
+match_manager = NodePath("../../MatchManager")
+network_manager = NodePath("../../NetworkManager")
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/Scoreboard" unique_id=691574389]
+visible = false
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_top = -6.0
+offset_right = 450.0
+offset_bottom = 110.0
+grow_horizontal = 2
+scale = Vector2(0.45, 0.45)
+pivot_offset = Vector2(450, 0)
+theme_override_styles/panel = SubResource("StyleBox_scoreboard_panel")
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Scoreboard/PanelContainer" unique_id=1951430254]
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="MainRow" type="HBoxContainer" parent="HUD/Scoreboard/PanelContainer/VBox" unique_id=708221837]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="BlueCard" type="PanelContainer" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow" unique_id=1281449598]
+custom_minimum_size = Vector2(250, 84)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBox_scoreboard_blue")
+
+[node name="BlueInfo" type="VBoxContainer" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/BlueCard" unique_id=1795913971]
+layout_mode = 2
+theme_override_constants/separation = -8
+alignment = 1
+
+[node name="BlueTeamLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/BlueCard/BlueInfo" unique_id=1138844299]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42, 0.76, 1, 1)
+theme_override_colors/font_outline_color = Color(0.01, 0.03, 0.08, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "●  BLUE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlueScoreLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/BlueCard/BlueInfo" unique_id=1846172560]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.95, 1, 1)
+theme_override_colors/font_outline_color = Color(0.01, 0.03, 0.08, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 44
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterCard" type="PanelContainer" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow" unique_id=1339562686]
+custom_minimum_size = Vector2(290, 84)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBox_scoreboard_clock")
+
+[node name="Center" type="VBoxContainer" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/CenterCard" unique_id=1612085818]
+layout_mode = 2
+theme_override_constants/separation = -5
+alignment = 1
+
+[node name="TimerLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/CenterCard/Center" unique_id=206391595]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 39
+text = "02:30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PhaseLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/CenterCard/Center" unique_id=2085368479]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.56, 0.82, 0.94, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "REGULATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RedCard" type="PanelContainer" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow" unique_id=1394561271]
+custom_minimum_size = Vector2(250, 84)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBox_scoreboard_red")
+
+[node name="RedInfo" type="VBoxContainer" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/RedCard" unique_id=1289519099]
+layout_mode = 2
+theme_override_constants/separation = -8
+alignment = 1
+
+[node name="RedTeamLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/RedCard/RedInfo" unique_id=1092657607]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.43, 0.48, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.01, 0.02, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "RED  ●"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RedScoreLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox/MainRow/RedCard/RedInfo" unique_id=540824802]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.9, 0.91, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.01, 0.02, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 44
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TournamentBar" type="PanelContainer" parent="HUD/Scoreboard/PanelContainer/VBox" unique_id=1440097903]
+visible = false
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBox_scoreboard_aggregate")
+
+[node name="AggregateScoreLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox/TournamentBar" unique_id=46549177]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.83, 0.3, 1)
+theme_override_font_sizes/font_size = 16
+text = "AGGREGATE   BLUE 0  —  0 RED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OvertimeLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox" unique_id=2071528039]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.65, 0.1, 1)
+text = "OVERTIME - GOLDEN GOAL"
+horizontal_alignment = 1
+
+[node name="MatchStateLabel" type="Label" parent="HUD/Scoreboard/PanelContainer/VBox" unique_id=1461994053]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+horizontal_alignment = 1
+
+[node name="AnnouncementLabel" type="Label" parent="HUD/Scoreboard" unique_id=1425823081]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 185.0
+offset_bottom = 255.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 42
+text = "A goal has been scored!"
+horizontal_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="HUD/Scoreboard" unique_id=119348986]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 110
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalCountdownLabel" type="Label" parent="HUD/Scoreboard" unique_id=355698617]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 82.0
+offset_bottom = 162.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0.83, 0.08, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.06, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 68
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SessionButtons" type="VBoxContainer" parent="HUD/Scoreboard" unique_id=2034684604]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_top = 4.2
+offset_right = -12.0
+offset_bottom = 140.2
+grow_horizontal = 0
+mouse_filter = 0
+theme_override_constants/separation = 8
+
+[node name="CancelMatchButton" type="Button" parent="HUD/Scoreboard/SessionButtons" unique_id=2047861681]
+custom_minimum_size = Vector2(44, 42)
+layout_mode = 2
+size_flags_horizontal = 8
+tooltip_text = "Cancel match"
+theme_override_colors/font_color = Color(1, 0.3, 0.34, 1)
+theme_override_font_sizes/font_size = 28
+text = "×"
+
+[node name="ResetBallButton" type="Button" parent="HUD/Scoreboard/SessionButtons" unique_id=1520501355]
+custom_minimum_size = Vector2(138, 42)
+layout_mode = 2
+tooltip_text = "Return only the ball to its spawn point."
+focus_mode = 0
+text = "Reset Ball"
+
+[node name="SkipHalftimeButton" type="Button" parent="HUD/Scoreboard/SessionButtons" unique_id=831765519]
+visible = false
+custom_minimum_size = Vector2(138, 42)
+layout_mode = 2
+tooltip_text = "Host only: begin the second leg immediately."
+focus_mode = 0
+text = "Skip Halftime"
+
+[node name="QuickChat" type="Control" parent="HUD" unique_id=207800174 node_paths=PackedStringArray("match_manager")]
+visible = false
+z_index = 80
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_quick_chat")
+match_manager = NodePath("../../MatchManager")
+
+[node name="Leaderboard" type="Control" parent="HUD" unique_id=963576551 node_paths=PackedStringArray("match_manager")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_leaderboard")
+match_manager = NodePath("../../MatchManager")
+
+[node name="Background" type="ColorRect" parent="HUD/Leaderboard" unique_id=1889207955]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.008, 0.022, 0.028, 0.7)
+
+[node name="Center" type="CenterContainer" parent="HUD/Leaderboard/Background" unique_id=220681890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="HUD/Leaderboard/Background/Center" unique_id=793032985]
+custom_minimum_size = Vector2(928, 0)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Leaderboard/Background/Center/Panel" unique_id=69642806]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="Title" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox" unique_id=2084661443]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.96, 0.72, 1)
+theme_override_colors/font_outline_color = Color(0, 0.05, 0.04, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 34
+text = "MATCH LEADERBOARD"
+horizontal_alignment = 1
+
+[node name="Winner" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox" unique_id=516462959]
+visible = false
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.95)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 45
+text = "BLUE WINS"
+horizontal_alignment = 1
+
+[node name="MVPPanel" type="PanelContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox" unique_id=37079821]
+visible = false
+custom_minimum_size = Vector2(512, 93)
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox/MVPPanel" unique_id=2053349132]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Badge" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox/MVPPanel/VBox" unique_id=1939094553]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.84, 0.28, 1)
+theme_override_font_sizes/font_size = 16
+text = "MATCH MVP"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox/MVPPanel/VBox" unique_id=1440624903]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Player"
+horizontal_alignment = 1
+
+[node name="Stats" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox/MVPPanel/VBox" unique_id=1896051164]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.86, 0.83, 1)
+theme_override_font_sizes/font_size = 14
+text = "BLUE TEAM   |   0 GOALS   |   0 SAVES   |   0 PASSES   |   0 VALUE POINTS"
+horizontal_alignment = 1
+
+[node name="TeamsRow" type="VBoxContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox" unique_id=1688172858]
+custom_minimum_size = Vector2(0, 390)
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="BlueCard" type="PanelContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow" unique_id=1850945710]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBox_leaderboard_blue")
+
+[node name="BlueSection" type="VBoxContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow/BlueCard" unique_id=1617302927]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Heading" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow/BlueCard/BlueSection" unique_id=933175988]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.65, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0.03, 0.09, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "BLUE   •   TEAM GOALS: 0"
+
+[node name="Grid" type="GridContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow/BlueCard/BlueSection" unique_id=2010717804]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="Versus" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow" unique_id=454548684]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.86, 0.9, 0.9)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 18
+text = "VS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RedCard" type="PanelContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow" unique_id=1281796121]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBox_leaderboard_red")
+
+[node name="RedSection" type="VBoxContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow/RedCard" unique_id=377943378]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Heading" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow/RedCard/RedSection" unique_id=1920824972]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.35, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.09, 0, 0.015, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "RED   •   TEAM GOALS: 0"
+
+[node name="Grid" type="GridContainer" parent="HUD/Leaderboard/Background/Center/Panel/VBox/TeamsRow/RedCard/RedSection" unique_id=698325388]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 5
+
+[node name="Hint" type="Label" parent="HUD/Leaderboard/Background/Center/Panel/VBox" unique_id=1166471869]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.75, 0.72, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 14
+text = "Release TAB to close"
+horizontal_alignment = 1
+
+[node name="AdjustAbilitiesButton" type="Button" parent="HUD/Leaderboard/Background/Center/Panel/VBox" unique_id=256693025]
+visible = false
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Adjust Abilities"
+
+[node name="BackButton" type="Button" parent="HUD/Leaderboard/Background/Center/Panel/VBox" unique_id=2055036491]
+visible = false
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Back to Lobby"
+
+[node name="ConnectionMenu" type="Control" parent="HUD" unique_id=2127519479 node_paths=PackedStringArray("network_manager", "match_manager")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_4nh5h")
+network_manager = NodePath("../../NetworkManager")
+match_manager = NodePath("../../MatchManager")
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/ConnectionMenu" unique_id=827644492]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ConnectionMenu/CenterContainer" unique_id=1389266364]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MenuTitle" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=917609613]
+material = SubResource("ShaderMaterial_menu_rainbow")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 74
+text = "THEODORE BALL"
+horizontal_alignment = 1
+
+[node name="ChapterSubtitle" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=181332063]
+material = SubResource("ShaderMaterial_chapter_gold")
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.24, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.82)
+theme_override_colors/font_outline_color = Color(0.08, 0.035, 0.005, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 27
+text = "CHAPTER 2"
+horizontal_alignment = 1
+
+[node name="CareerStatsLabel" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=1172420033]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.82, 0.24, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "CAREER   GOALS: 0   |   SAVES: 0"
+horizontal_alignment = 1
+
+[node name="LocalHostButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=1460486085]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Local Host"
+
+[node name="LocalJoinButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=1017763517]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Local Join"
+
+[node name="MultiplayerButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=2057124426]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Multiplayer"
+
+[node name="FreeplayButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=1697492214]
+layout_mode = 2
+tooltip_text = "Practice alone with instant ability switching and no cooldown waiting."
+theme_override_font_sizes/font_size = 24
+text = "Freeplay"
+
+[node name="OptionsButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=1496694754]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=2041821320]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Exit Game"
+
+[node name="MultiplayerPanel" type="VBoxContainer" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=281588678]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=320754834]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.64, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "STEAM MULTIPLAYER"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=1334101529]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.58, 0.7, 0.76, 1)
+theme_override_font_sizes/font_size = 16
+text = "Create a public P2P lobby or join an available match."
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=890124659]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+tooltip_text = "Cancel the current Steam action and return to the main menu."
+theme_override_font_sizes/font_size = 19
+text = "←  BACK TO MAIN MENU"
+
+[node name="LobbyNameLabel" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=812507457]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "LOBBY NAME"
+
+[node name="LobbyNameEdit" type="LineEdit" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=1850930224]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+placeholder_text = "My Lobby"
+max_length = 48
+select_all_on_focus = true
+
+[node name="CreateLobbyButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=884831278]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "Create Public Lobby"
+
+[node name="Separator" type="HSeparator" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=980407774]
+layout_mode = 2
+
+[node name="BrowserHeader" type="HBoxContainer" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=615256873]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LobbyCountLabel" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel/BrowserHeader" unique_id=52030555]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 19
+text = "AVAILABLE LOBBIES — 0"
+vertical_alignment = 1
+
+[node name="RefreshButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel/BrowserHeader" unique_id=41708790]
+custom_minimum_size = Vector2(130, 44)
+layout_mode = 2
+text = "Refresh"
+
+[node name="LobbyScroll" type="ScrollContainer" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=989714522]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="LobbyList" type="VBoxContainer" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel/LobbyScroll" unique_id=173512928]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="RefreshTimer" type="Timer" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/MultiplayerPanel" unique_id=440610977]
+wait_time = 8.0
+
+[node name="OptionsPanel" type="VBoxContainer" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=1322031181]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OptionsTitle" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=567407716]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="VolumeLabel" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=1448960719]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=1665862495]
+layout_mode = 2
+value = 100.0
+ticks_on_borders = true
+
+[node name="DirectionIndicatorToggle" type="CheckButton" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=2012179485]
+layout_mode = 2
+button_pressed = true
+text = "Direction Indicator Arrow"
+
+[node name="BindingsModeButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=750341390]
+layout_mode = 2
+text = "Controls: Keyboard"
+
+[node name="AbilityKeyButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=241399802]
+layout_mode = 2
+text = "Ability Key: Shift"
+
+[node name="SoftPassKeyButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=2007556704]
+layout_mode = 2
+tooltip_text = "Instantly play a controlled soft pass toward a valid teammate."
+text = "Soft Pass Key: Ctrl"
+
+[node name="PassRequestKeyButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=2014420854]
+layout_mode = 2
+text = "Pass Request Key: R"
+
+[node name="QuickChatKeyButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=1258588861]
+layout_mode = 2
+text = "Quick Chat Key: C"
+
+[node name="ControllerStatusLabel" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=1292481743]
+visible = false
+layout_mode = 2
+text = "Controller: Not connected"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="ControllerPromptStyleButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=1171040396]
+visible = false
+layout_mode = 2
+text = "PS5 Icons"
+
+[node name="ControllerBindings" type="GridContainer" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=285749351]
+visible = false
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="ShootButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=1278642306]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Shoot: RT"
+
+[node name="AbilityButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=1783565493]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Ability: X"
+
+[node name="SoftPassButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=216735164]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Soft Pass: A"
+
+[node name="PassRequestButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=272794235]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Request Pass: LB"
+
+[node name="QuickChatButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=1469778367]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Quick Chat: D-Pad Up"
+
+[node name="LeaderboardButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=1877613045]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Leaderboard: View"
+
+[node name="MovementStickButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=1272020281]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Movement: Left Stick"
+
+[node name="ResetControllerButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel/ControllerBindings" unique_id=922950146]
+custom_minimum_size = Vector2(245, 44)
+layout_mode = 2
+text = "Reset Controller"
+
+[node name="BackButton" type="Button" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer/OptionsPanel" unique_id=654699078]
+layout_mode = 2
+text = "Back"
+
+[node name="ConnectionLabel" type="Label" parent="HUD/ConnectionMenu/CenterContainer/VBoxContainer" unique_id=987852603]
+layout_mode = 2
+text = "Not connected"
+horizontal_alignment = 1
+
+[node name="ToggleMenuButton" type="Button" parent="HUD/ConnectionMenu" unique_id=761528115]
+custom_minimum_size = Vector2(170, 46)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -66.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Hide the main menu buttons for an unobstructed field view."
+theme_override_font_sizes/font_size = 20
+text = "Hide Menu"
+
+[node name="GoalReplayHUD" type="Control" parent="HUD" unique_id=261417782 node_paths=PackedStringArray("match_manager")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("21_goal_replay")
+match_manager = NodePath("../../MatchManager")
+
+[node name="Panel" type="PanelContainer" parent="HUD/GoalReplayHUD" unique_id=1353118115]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -84.0
+offset_right = 220.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBox_goal_replay_panel")
+
+[node name="Margin" type="MarginContainer" parent="HUD/GoalReplayHUD/Panel" unique_id=333522121]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HUD/GoalReplayHUD/Panel/Margin" unique_id=1949912795]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ReplayLabel" type="Label" parent="HUD/GoalReplayHUD/Panel/Margin/VBox" unique_id=333279697]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.92, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 18
+text = "GOAL REPLAY"
+horizontal_alignment = 1
+
+[node name="SlowMotionLabel" type="Label" parent="HUD/GoalReplayHUD/Panel/Margin/VBox" unique_id=1245616237]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.76, 0.24, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 13
+text = "SLOW MOTION - FINAL TOUCH"
+horizontal_alignment = 1
+
+[node name="VoteRow" type="HBoxContainer" parent="HUD/GoalReplayHUD/Panel/Margin/VBox" unique_id=2078482697]
+layout_mode = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="SkipActionLabel" type="Label" parent="HUD/GoalReplayHUD/Panel/Margin/VBox/VoteRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.9, 0.94, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "SKIP"
+vertical_alignment = 1
+
+[node name="PromptIcon" type="TextureRect" parent="HUD/GoalReplayHUD/Panel/Margin/VBox/VoteRow"]
+texture_filter = 1
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PromptLabel" type="Label" parent="HUD/GoalReplayHUD/Panel/Margin/VBox/VoteRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46, 1, 0.67, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "SPACE"
+vertical_alignment = 1
+
+[node name="VoteCountLabel" type="Label" parent="HUD/GoalReplayHUD/Panel/Margin/VBox/VoteRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.9, 0.94, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 11
+text = "-  0 / 1"
+vertical_alignment = 1
+
+[node name="NetworkManager" type="Node" parent="." unique_id=1820438459 node_paths=PackedStringArray("player_spawner", "players_parent")]
+script = ExtResource("9_v0cjs")
+player_scene = ExtResource("2_gsl2p")
+player_spawner = NodePath("../MultiplayerSpawner")
+players_parent = NodePath("../Players")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1560938156]
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node2D" parent="." unique_id=275709616]
+position = Vector2(-119.265, -691.99)
+
+[node name="AlvinAlvinAndTheChipmunks3ChipWrecked270960059931400" type="Sprite2D" parent="." unique_id=1602788062]
+texture_filter = 4
+visible = false
+position = Vector2(7260.975, 2527)
+scale = Vector2(0.27379134, 0.8957144)
+texture = ExtResource("11_u7adw")
+
+[node name="Goal" type="Sprite2D" parent="." unique_id=1533918259]
+texture_filter = 4
+z_index = -1
+z_as_relative = false
+position = Vector2(2895.0002, 4481)
+scale = Vector2(1.9881891, 0.45419848)
+texture = ExtResource("24_coowj")
+
+[node name="Images(3)" type="Sprite2D" parent="." unique_id=1795104924]
+texture_filter = 4
+z_index = -1
+position = Vector2(2322, 4483)
+scale = Vector2(0.9113475, 0.6647399)
+texture = ExtResource("25_iugrc")
+
+[node name="AlvinUndDieChipmunksJahr2007UsaRegieTimHillB83Rk8" type="Sprite2D" parent="." unique_id=198427579]
+texture_filter = 4
+z_index = -1
+position = Vector2(3731.9998, 4475)
+scale = Vector2(0.8534653, 0.19910057)
+texture = ExtResource("26_rllx5")
+
+[node name="E3Cdd63aF9a64Db28136C353563a90b2" type="Sprite2D" parent="." unique_id=1420034078]
+texture_filter = 4
+z_index = -1
+position = Vector2(4515, 4427)
+scale = Vector2(0.325, 0.17025863)
+texture = ExtResource("27_omb63")

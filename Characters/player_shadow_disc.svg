@@ -1,0 +1,11 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="disc" cx="38%" cy="30%" r="72%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.68" stop-color="#dfe8f2"/>
+      <stop offset="1" stop-color="#8794a6"/>
+    </radialGradient>
+  </defs>
+  <circle cx="128" cy="128" r="108" fill="url(#disc)"/>
+</svg>

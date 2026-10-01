@@ -1,0 +1,9 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs><linearGradient id="l" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff982"/><stop offset=".45" stop-color="#ffd21f"/><stop offset="1" stop-color="#ff7a18"/></linearGradient></defs>
+  <path d="M68 2 19 71h30l-15 55 79-83H80L103 2z" fill="#091334" stroke="#513de0" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M70 15 38 62h29l-14 43 46-49H68l17-41z" fill="url(#l)" stroke="#fff8a8" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M71 16h14L68 56H54z" fill="#fffde0"/>
+  <path d="M6 27h38M1 47h32M7 92h35M2 111h28" stroke="#3de6ff" stroke-width="8" stroke-linecap="round"/>
+  <path d="M18 12l3 7 8 2-6 5 1 8-6-4-7 4 2-8-6-5 8-2zM106 87l4 9 10 2-8 7 2 10-8-5-9 5 2-10-7-7 10-2z" fill="#79f5ff"/>
+</svg>

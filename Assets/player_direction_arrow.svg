@@ -1,0 +1,20 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="112" viewBox="0 0 256 112">
+  <defs>
+    <linearGradient id="arrowFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="0.58" stop-color="#FFFFFF" stop-opacity="0.62"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.92"/>
+    </linearGradient>
+  </defs>
+  <path d="M12 37 H145 V12 L244 56 L145 100 V75 H12 Z"
+        fill="#071019" fill-opacity="0.38"
+        stroke="#071019" stroke-opacity="0.52" stroke-width="14"
+        stroke-linejoin="round"/>
+  <path d="M12 37 H145 V12 L244 56 L145 100 V75 H12 Z"
+        fill="url(#arrowFill)"
+        stroke="#FFFFFF" stroke-opacity="0.72" stroke-width="5"
+        stroke-linejoin="round"/>
+  <path d="M34 48 H159 V35 L207 56 L159 77 V64 H34 Z"
+        fill="#FFFFFF" fill-opacity="0.22"/>
+</svg>

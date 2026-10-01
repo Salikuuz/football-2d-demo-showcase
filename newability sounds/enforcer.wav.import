@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bsa61dixxmjap"
+path="res://.godot/imported/enforcer.wav-8a706609e992c19db596c8d2f01485d3.sample"
+
+[deps]
+
+source_file="res://newability sounds/enforcer.wav"
+dest_files=["res://.godot/imported/enforcer.wav-8a706609e992c19db596c8d2f01485d3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,346 @@
+--- a/Characters/player.gd
++++ b/Characters/player.gd
+@@ -20,8 +20,19 @@
+ const CLIENT_INPUT_DIRECTION_CHANGE_THRESHOLD: float = 0.025
+ const CLIENT_INPUT_IMMEDIATE_CHANGE_THRESHOLD: float = 0.12
+ const NETWORK_SNAPSHOT_EXTRAPOLATION_SECONDS: float = 0.040
+-const NETWORK_REMOTE_SMOOTHING_RESPONSE: float = 60.0
+-const NETWORK_LOCAL_SMOOTHING_RESPONSE: float = 60.0
++# Steam/Internet delivery is not guaranteed to arrive at the exact cadence the
++# server emits. Keep the 40 ms low-latency prediction used on clean links, but
++# adapt the prediction window to the cadence actually observed by each client.
++# This prevents a 50-70 ms packet gap from exhausting prediction and visibly
++# freezing the replica for a few render frames before the next snapshot lands.
++const NETWORK_SNAPSHOT_MAX_EXTRAPOLATION_SECONDS: float = 0.120
++const NETWORK_SNAPSHOT_INTERVAL_BLEND: float = 0.20
++const NETWORK_SNAPSHOT_INTERVAL_MAX_SAMPLE_SECONDS: float = 0.250
++const NETWORK_SNAPSHOT_INTERVAL_MULTIPLIER: float = 1.75
++const NETWORK_SNAPSHOT_JITTER_MARGIN_SECONDS: float = 0.008
++const NETWORK_SNAPSHOT_STALE_DECAY_SECONDS: float = 0.045
++const NETWORK_REMOTE_SMOOTHING_RESPONSE: float = 46.0
++const NETWORK_LOCAL_SMOOTHING_RESPONSE: float = 56.0
+ const NETWORK_TELEPORT_SNAP_DISTANCE: float = 720.0
+ # Keep authoritative player replication at the original full 60 Hz in every
+ # team size. Large-match performance is handled by CPU work distribution, not
+@@ -1036,7 +1047,9 @@
+ var _network_last_snapshot_position: Vector2 = Vector2.INF
+ var _network_last_snapshot_velocity: Vector2 = Vector2.INF
+ var _network_snapshot_age: float = 0.0
++var _network_smoothed_snapshot_interval: float = 1.0 / 60.0
+ var _network_motion_initialized: bool = false
++var _network_snapshot_signal_connected: bool = false
+ var _network_last_safe_render_position: Vector2 = Vector2.ZERO
+ var _physics_sanity_last_transform: Transform2D = Transform2D.IDENTITY
+ var _physics_sanity_last_velocity: Vector2 = Vector2.ZERO
+@@ -1330,6 +1343,7 @@
+ 		_network_last_snapshot_position = network_position
+ 		_network_last_snapshot_velocity = network_linear_velocity
+ 		_network_motion_initialized = true
++		_connect_network_motion_snapshot_signal()
+ 
+ 
+ func _process(delta: float) -> void:
+@@ -3239,18 +3253,19 @@
+ 
+ func _update_client_network_motion(delta: float) -> void:
+ 	_repair_invalid_client_network_motion()
+-	# MultiplayerSynchronizer only changes these values when a new authoritative
+-	# snapshot arrives. Detect that edge, then render smoothly between snapshots.
+-	var received_new_snapshot: bool = (
+-		network_position != _network_last_snapshot_position
+-		or network_linear_velocity != _network_last_snapshot_velocity
+-	)
+-	if received_new_snapshot:
+-		_network_last_snapshot_position = network_position
+-		_network_last_snapshot_velocity = network_linear_velocity
+-		_network_target_position = network_position
+-		_network_target_velocity = network_linear_velocity
+-		_network_snapshot_age = 0.0
++	# Prefer MultiplayerSynchronizer.synchronized so packet arrival cadence is
++	# measured from complete synchronization states instead of inferred from
++	# whether a value happened to change. Keep the old value-edge detection as a
++	# fallback for unusual scene/runtime setups where the signal is unavailable.
++	if not _network_snapshot_signal_connected:
++		var received_new_snapshot: bool = (
++			network_position != _network_last_snapshot_position
++			or network_linear_velocity != _network_last_snapshot_velocity
++		)
++		if received_new_snapshot:
++			_accept_network_motion_snapshot()
++		else:
++			_network_snapshot_age += maxf(0.0, delta)
+ 	else:
+ 		_network_snapshot_age += maxf(0.0, delta)
+ 
+@@ -3263,10 +3278,7 @@
+ 		_network_motion_initialized = true
+ 		return
+ 
+-	var extrapolation_seconds: float = minf(
+-		_network_snapshot_age,
+-		NETWORK_SNAPSHOT_EXTRAPOLATION_SECONDS
+-	)
++	var extrapolation_seconds := _get_network_prediction_seconds()
+ 	var desired_position: Vector2 = (
+ 		_network_target_position
+ 		+ _network_target_velocity * extrapolation_seconds
+@@ -3289,6 +3301,72 @@
+ 		_network_last_safe_render_position = position
+ 
+ 
++func _connect_network_motion_snapshot_signal() -> void:
++	var synchronizer := get_node_or_null(
++		"MultiplayerSynchronizer"
++	) as MultiplayerSynchronizer
++	if synchronizer == null:
++		return
++	if not synchronizer.synchronized.is_connected(
++		_on_network_motion_synchronized
++	):
++		synchronizer.synchronized.connect(
++			_on_network_motion_synchronized
++		)
++	_network_snapshot_signal_connected = true
++
++
++func _on_network_motion_synchronized() -> void:
++	if multiplayer.is_server():
++		return
++	_accept_network_motion_snapshot()
++
++
++func _accept_network_motion_snapshot() -> void:
++	var arrival_interval := _network_snapshot_age
++	if (
++		arrival_interval > 0.001
++		and arrival_interval <= NETWORK_SNAPSHOT_INTERVAL_MAX_SAMPLE_SECONDS
++	):
++		_network_smoothed_snapshot_interval = lerpf(
++			_network_smoothed_snapshot_interval,
++			arrival_interval,
++			NETWORK_SNAPSHOT_INTERVAL_BLEND
++		)
++	_network_last_snapshot_position = network_position
++	_network_last_snapshot_velocity = network_linear_velocity
++	_network_target_position = network_position
++	_network_target_velocity = network_linear_velocity
++	_network_snapshot_age = 0.0
++
++
++func _get_network_prediction_seconds() -> float:
++	var prediction_horizon := clampf(
++		maxf(
++			NETWORK_SNAPSHOT_EXTRAPOLATION_SECONDS,
++			_network_smoothed_snapshot_interval
++			* NETWORK_SNAPSHOT_INTERVAL_MULTIPLIER
++			+ NETWORK_SNAPSHOT_JITTER_MARGIN_SECONDS
++		),
++		NETWORK_SNAPSHOT_EXTRAPOLATION_SECONDS,
++		NETWORK_SNAPSHOT_MAX_EXTRAPOLATION_SECONDS
++	)
++	if _network_snapshot_age <= prediction_horizon:
++		return _network_snapshot_age
++
++	# If a packet is late, ease toward a stop instead of hitting the prediction
++	# ceiling in one frame. This makes packet loss/jitter visible as a gentle
++	# correction rather than the old stop-jump-stop cadence.
++	var stale_age := _network_snapshot_age - prediction_horizon
++	var decay_seconds := maxf(
++		0.001,
++		NETWORK_SNAPSHOT_STALE_DECAY_SECONDS
++	)
++	return prediction_horizon + decay_seconds * (
++		1.0 - exp(-stale_age / decay_seconds)
++	)
++
++
+ func _repair_invalid_client_network_motion() -> bool:
+ 	var repaired := false
+ 	if not _physics_vector_is_sane(position):
+@@ -3321,6 +3399,7 @@
+ 		_network_last_snapshot_position = network_position
+ 		_network_last_snapshot_velocity = network_linear_velocity
+ 		_network_snapshot_age = 0.0
++		_network_smoothed_snapshot_interval = 1.0 / 60.0
+ 	return repaired
+ 
+ 
+@@ -12128,6 +12207,7 @@
+ 	_network_last_snapshot_position = local_spawn
+ 	_network_last_snapshot_velocity = Vector2.ZERO
+ 	_network_snapshot_age = 0.0
++	_network_smoothed_snapshot_interval = 1.0 / 60.0
+ 	_network_motion_initialized = true
+ 	_network_last_safe_render_position = local_spawn
+ 	reset_physics_interpolation()
+--- a/Characters/ball.gd
++++ b/Characters/ball.gd
+@@ -8,7 +8,13 @@
+ # whenever a network packet happens to arrive, which was visibly jittery at
+ # high render rates.
+ const NETWORK_BALL_EXTRAPOLATION_SECONDS: float = 0.035
+-const NETWORK_BALL_SMOOTHING_RESPONSE: float = 64.0
++const NETWORK_BALL_MAX_EXTRAPOLATION_SECONDS: float = 0.090
++const NETWORK_BALL_SNAPSHOT_INTERVAL_BLEND: float = 0.20
++const NETWORK_BALL_SNAPSHOT_INTERVAL_MAX_SAMPLE_SECONDS: float = 0.250
++const NETWORK_BALL_SNAPSHOT_INTERVAL_MULTIPLIER: float = 1.55
++const NETWORK_BALL_SNAPSHOT_JITTER_MARGIN_SECONDS: float = 0.008
++const NETWORK_BALL_STALE_DECAY_SECONDS: float = 0.024
++const NETWORK_BALL_SMOOTHING_RESPONSE: float = 50.0
+ const NETWORK_BALL_TELEPORT_SNAP_DISTANCE: float = 900.0
+ const BALL_STYLE_THEODORE: StringName = &"theodore"
+ const BALL_STYLE_CLASSIC: StringName = &"classic"
+@@ -191,7 +197,9 @@
+ var _network_last_snapshot_rotation: float = INF
+ var _network_last_snapshot_angular_velocity: float = INF
+ var _network_snapshot_age: float = 0.0
++var _network_smoothed_snapshot_interval: float = 1.0 / 60.0
+ var _network_motion_initialized: bool = false
++var _network_snapshot_signal_connected: bool = false
+ var _network_last_safe_render_position: Vector2 = Vector2.ZERO
+ 
+ @export_category("Player Ball-Impact Knockback")
+@@ -535,6 +543,7 @@
+ 		_network_last_snapshot_angular_velocity = network_angular_velocity
+ 		_network_motion_initialized = true
+ 		_network_last_safe_render_position = position
++		_connect_network_motion_snapshot_signal()
+ 
+ 
+ func _apply_saved_local_ball_style() -> void:
+@@ -624,25 +633,23 @@
+ 
+ 
+ func _update_client_network_motion(delta: float) -> void:
+-	var received_new_snapshot: bool = (
+-		network_position != _network_last_snapshot_position
+-		or network_linear_velocity != _network_last_snapshot_velocity
+-		or not is_equal_approx(network_rotation, _network_last_snapshot_rotation)
+-		or not is_equal_approx(
+-			network_angular_velocity,
+-			_network_last_snapshot_angular_velocity
++	if not _network_snapshot_signal_connected:
++		var received_new_snapshot: bool = (
++			network_position != _network_last_snapshot_position
++			or network_linear_velocity != _network_last_snapshot_velocity
++			or not is_equal_approx(
++				network_rotation,
++				_network_last_snapshot_rotation
++			)
++			or not is_equal_approx(
++				network_angular_velocity,
++				_network_last_snapshot_angular_velocity
++			)
+ 		)
+-	)
+-	if received_new_snapshot:
+-		_network_last_snapshot_position = network_position
+-		_network_last_snapshot_velocity = network_linear_velocity
+-		_network_last_snapshot_rotation = network_rotation
+-		_network_last_snapshot_angular_velocity = network_angular_velocity
+-		_network_target_position = network_position
+-		_network_target_velocity = network_linear_velocity
+-		_network_target_rotation = network_rotation
+-		_network_target_angular_velocity = network_angular_velocity
+-		_network_snapshot_age = 0.0
++		if received_new_snapshot:
++			_accept_network_motion_snapshot()
++		else:
++			_network_snapshot_age += maxf(0.0, delta)
+ 	else:
+ 		_network_snapshot_age += maxf(0.0, delta)
+ 
+@@ -655,10 +662,7 @@
+ 		_network_last_safe_render_position = position
+ 		return
+ 
+-	var extrapolation_seconds: float = minf(
+-		_network_snapshot_age,
+-		NETWORK_BALL_EXTRAPOLATION_SECONDS
+-	)
++	var extrapolation_seconds := _get_network_prediction_seconds()
+ 	var desired_position: Vector2 = (
+ 		_network_target_position
+ 		+ _network_target_velocity * extrapolation_seconds
+@@ -683,6 +687,73 @@
+ 		_network_last_safe_render_position = position
+ 
+ 
++func _connect_network_motion_snapshot_signal() -> void:
++	var synchronizer := get_node_or_null(
++		"MultiplayerSynchronizer"
++	) as MultiplayerSynchronizer
++	if synchronizer == null:
++		return
++	if not synchronizer.synchronized.is_connected(
++		_on_network_motion_synchronized
++	):
++		synchronizer.synchronized.connect(
++			_on_network_motion_synchronized
++		)
++	_network_snapshot_signal_connected = true
++
++
++func _on_network_motion_synchronized() -> void:
++	if multiplayer.is_server():
++		return
++	_accept_network_motion_snapshot()
++
++
++func _accept_network_motion_snapshot() -> void:
++	var arrival_interval := _network_snapshot_age
++	if (
++		arrival_interval > 0.001
++		and arrival_interval <= NETWORK_BALL_SNAPSHOT_INTERVAL_MAX_SAMPLE_SECONDS
++	):
++		_network_smoothed_snapshot_interval = lerpf(
++			_network_smoothed_snapshot_interval,
++			arrival_interval,
++			NETWORK_BALL_SNAPSHOT_INTERVAL_BLEND
++		)
++	_network_last_snapshot_position = network_position
++	_network_last_snapshot_velocity = network_linear_velocity
++	_network_last_snapshot_rotation = network_rotation
++	_network_last_snapshot_angular_velocity = network_angular_velocity
++	_network_target_position = network_position
++	_network_target_velocity = network_linear_velocity
++	_network_target_rotation = network_rotation
++	_network_target_angular_velocity = network_angular_velocity
++	_network_snapshot_age = 0.0
++
++
++func _get_network_prediction_seconds() -> float:
++	var prediction_horizon := clampf(
++		maxf(
++			NETWORK_BALL_EXTRAPOLATION_SECONDS,
++			_network_smoothed_snapshot_interval
++			* NETWORK_BALL_SNAPSHOT_INTERVAL_MULTIPLIER
++			+ NETWORK_BALL_SNAPSHOT_JITTER_MARGIN_SECONDS
++		),
++		NETWORK_BALL_EXTRAPOLATION_SECONDS,
++		NETWORK_BALL_MAX_EXTRAPOLATION_SECONDS
++	)
++	if _network_snapshot_age <= prediction_horizon:
++		return _network_snapshot_age
++
++	# A stale ball snapshot should slow down smoothly rather than suddenly stop,
++	# but the tail is intentionally short because ball collisions can change
++	# velocity much more abruptly than player movement.
++	var stale_age := _network_snapshot_age - prediction_horizon
++	var decay_seconds := maxf(0.001, NETWORK_BALL_STALE_DECAY_SECONDS)
++	return prediction_horizon + decay_seconds * (
++		1.0 - exp(-stale_age / decay_seconds)
++	)
++
++
+ func _reset_client_network_motion(
+ 	reset_position: Vector2,
+ 	reset_velocity: Vector2 = Vector2.ZERO,
+@@ -708,6 +779,7 @@
+ 	_network_last_snapshot_rotation = reset_rotation
+ 	_network_last_snapshot_angular_velocity = reset_angular_velocity
+ 	_network_snapshot_age = 0.0
++	_network_smoothed_snapshot_interval = 1.0 / 60.0
+ 	_network_motion_initialized = true
+ 	_network_last_safe_render_position = reset_position
+ 	reset_physics_interpolation()

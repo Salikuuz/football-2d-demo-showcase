@@ -1,0 +1,12 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs><radialGradient id="b"><stop stop-color="#e7b8ff"/><stop offset=".55" stop-color="#a856ff"/><stop offset="1" stop-color="#4a168d"/></radialGradient></defs>
+  <path d="M5 36h50M1 58h45M10 81h39M20 101h31" stroke="#2b1055" stroke-width="17" stroke-linecap="round"/>
+  <path d="M5 36h50M1 58h45M10 81h39M20 101h31" stroke="#b366ff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M11 26h28M17 112h25" stroke="#e4b5ff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="80" cy="63" r="42" fill="#26104c" stroke="#d08aff" stroke-width="5"/>
+  <circle cx="80" cy="63" r="32" fill="url(#b)"/>
+  <path d="m80 35 15 11-6 19H71l-6-19zm-28 21 14 10-5 17-17-7zm56 0 9 20-18 7-5-17zM66 85h29l9 13H57z" fill="#34115e"/>
+  <path d="M101 21v15m0 54v15M88 10h13m0 106H88" stroke="#f0d7ff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M112 46l5 8 10 1-7 7 2 9-9-4-8 5 1-10-7-6 9-2z" fill="#fff28d"/>
+</svg>

@@ -1,0 +1,66 @@
+HYBRID AI CHECKPOINT RESUME FIX V2
+
+WHY V1 FAILED
+
+V1 checked the checksum of the raw policy JSON. Older trainer saves could
+calculate their checksum from a normalized in-memory policy but write a
+different/sparser policy document. Therefore neither the raw policy nor the
+policy normalized with today's newer defaults necessarily matches the old
+checksum.
+
+V2 safely accepts that specific legacy format only when:
+- checkpoint, observation, and action-space versions match
+- model_type is hybrid_linear_tactical_policy
+- training counters are non-negative
+- bias and weight dictionaries are structurally valid
+- enough known tactical actions are present
+
+It then immediately normalizes the policy, creates a timestamped byte-for-byte
+backup, rewrites active.json atomically, and verifies the new checksum.
+
+INSTALL AFTER TRAINING HAS FINISHED
+
+Extract into:
+C:\Users\salik\Documents\football-2d-
+
+Overwrite:
+ai\hybrid\checkpoint_store.gd
+training\repair_hybrid_checkpoint.gd
+
+RUN
+
+cd "C:\Users\salik\Documents\football-2d-"
+
+$Godot = "C:\Users\salik\Downloads\Godot_v4.7.1-stable_win64.exe"
+$Project = "C:\Users\salik\Documents\football-2d-"
+
+& $Godot `
+  --headless `
+  --path $Project `
+  --script "res://training/repair_hybrid_checkpoint.gd" `
+  -- `
+  --checkpoint "user://hybrid_ai/1v1/active.json"
+
+REQUIRED ENDING
+
+HYBRID CHECKPOINT REPAIR V2 PASSED
+
+THEN PREFLIGHT
+
+.\training\run_hybrid_ai.ps1 `
+  -Godot $Godot `
+  -Project $Project `
+  -Mode preflight `
+  -SkipImport
+
+THEN VERIFY
+
+.\training\run_hybrid_ai.ps1 `
+  -Godot $Godot `
+  -Project $Project `
+  -Mode verify `
+  -Checkpoint "user://hybrid_ai/1v1/active.json" `
+  -SkipImport
+
+The next training startup must not say:
+starting from safe default policy

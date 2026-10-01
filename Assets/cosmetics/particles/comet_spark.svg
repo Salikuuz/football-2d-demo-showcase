@@ -1,0 +1,14 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="48" viewBox="0 0 72 48">
+  <defs>
+    <linearGradient id="tail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff6a1f" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#ffad38" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#fff2a8"/>
+    </linearGradient>
+  </defs>
+  <path d="M2 24L48 10L64 24L48 38Z" fill="url(#tail)"/>
+  <path d="M18 24L49 17L59 24L49 31Z" fill="#fff2a8" opacity="0.76"/>
+  <circle cx="57" cy="24" r="10" fill="#ffad38"/>
+  <circle cx="59" cy="22" r="5" fill="#ffffff"/>
+</svg>

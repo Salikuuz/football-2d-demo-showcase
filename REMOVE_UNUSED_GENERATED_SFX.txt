@@ -1,0 +1,18 @@
+These generated files from the unwanted sound-feedback overhaul are no longer referenced after applying this hotfix.
+You can leave them in the project harmlessly, or delete them if you want the project clean:
+
+res://Audio/sfx_ability_activate.wav
+res://Audio/sfx_countdown_go.wav
+res://Audio/sfx_countdown_tick.wav
+res://Audio/sfx_goal.wav
+res://Audio/sfx_interception.wav
+res://Audio/sfx_kick_full.wav
+res://Audio/sfx_kick_normal.wav
+res://Audio/sfx_kick_strong.wav
+res://Audio/sfx_overtime.wav
+res://Audio/sfx_post_hit.wav
+res://Audio/sfx_power_strike.wav
+res://Audio/sfx_save.wav
+res://Audio/sfx_ui_click.wav
+res://Audio/sfx_ui_hover.wav
+res://Audio/sfx_wall_hit.wav

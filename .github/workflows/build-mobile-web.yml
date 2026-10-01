@@ -1,0 +1,39 @@
+name: Build Theodore Ball Mobile Web PWA
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - "**/*.md"
+
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Godot editor
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/theodore-ball-godot-4.7.1
+          key: godot-editor-4.7.1-linux-x86_64
+
+      - name: Cache Web export template
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/godot/export_templates/4.7.1.stable
+          key: godot-web-nothreads-template-4.7.1
+
+      - name: Export Mobile Web PWA
+        run: bash ci/build_web.sh
+
+      - name: Upload playable web build
+        uses: actions/upload-artifact@v4
+        with:
+          name: theodore-ball-mobile-web
+          path: game/mobile_web/
+          if-no-files-found: error
+          compression-level: 6

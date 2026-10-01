@@ -1,0 +1,41 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="shell" cx="34%" cy="27%" r="78%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.55" stop-color="#E9F0F4"/>
+      <stop offset="1" stop-color="#AEBAC2"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#91F5FF"/>
+      <stop offset="0.48" stop-color="#2CCBE4"/>
+      <stop offset="1" stop-color="#087C9C"/>
+    </linearGradient>
+    <clipPath id="ballClip">
+      <circle cx="128" cy="128" r="112"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="132" cy="137" r="113" fill="#02080D" fill-opacity="0.38"/>
+  <circle cx="128" cy="128" r="116" fill="#07131D" stroke="#D9FAFF" stroke-opacity="0.52" stroke-width="4"/>
+  <circle cx="128" cy="128" r="109" fill="url(#shell)"/>
+
+  <g clip-path="url(#ballClip)" stroke="#132631" stroke-width="8" stroke-linejoin="round">
+    <path d="M128 73 L171 103 L154 153 L102 153 L85 103 Z" fill="#132631"/>
+    <path d="M128 73 L112 26 L65 45 L85 103 Z" fill="#53656F"/>
+    <path d="M128 73 L144 26 L191 45 L171 103 Z" fill="#273943"/>
+    <path d="M171 103 L220 96 L231 147 L188 174 L154 153 Z" fill="#53656F"/>
+    <path d="M154 153 L188 174 L168 222 L112 226 L102 153 Z" fill="#273943"/>
+    <path d="M102 153 L68 174 L25 147 L36 96 L85 103 Z" fill="#53656F"/>
+    <path d="M68 174 L112 226 L57 211 L22 166 L25 147 Z" fill="#273943"/>
+  </g>
+
+  <g clip-path="url(#ballClip)" fill="none" stroke="url(#rim)" stroke-linecap="round">
+    <path d="M46 83 C76 48 120 35 164 45" stroke-width="10" stroke-opacity="0.88"/>
+    <path d="M185 66 C211 91 220 119 213 149" stroke-width="7" stroke-opacity="0.64"/>
+  </g>
+
+  <ellipse cx="88" cy="67" rx="34" ry="18" fill="#FFFFFF" fill-opacity="0.42" transform="rotate(-24 88 67)"/>
+  <circle cx="128" cy="128" r="109" fill="none" stroke="#FFFFFF" stroke-opacity="0.52" stroke-width="5"/>
+  <circle cx="128" cy="128" r="113" fill="none" stroke="url(#rim)" stroke-opacity="0.72" stroke-width="5"/>
+</svg>

@@ -1,0 +1,288 @@
+[gd_scene format=3 uid="uid://c8ih3461ygx6v"]
+
+[ext_resource type="Script" uid="uid://cr4kq4xnyt8lo" path="res://Scenes/Teamselection.gd" id="1_hvj5s"]
+[ext_resource type="Texture2D" uid="uid://b87ro46kkhb4c" path="res://Download (3).png" id="1_i3sgj"]
+[ext_resource type="PackedScene" uid="uid://j4ougvk1x6w8" path="res://Characters/player.tscn" id="2_gsl2p"]
+[ext_resource type="Texture2D" uid="uid://cumou5yfupqk" path="res://field.png" id="2_l7lok"]
+[ext_resource type="PackedScene" uid="uid://j8da7247jlp2" path="res://Characters/ball.tscn" id="3_xks4p"]
+[ext_resource type="PackedScene" uid="uid://uvd830xbvcyk" path="res://Characters/goal.tscn" id="4_c6dkp"]
+[ext_resource type="Script" uid="uid://bwh3x2pup0s80" path="res://Scenes/match_manager.gd" id="5_i3sgj"]
+[ext_resource type="Script" uid="uid://jlabx16mc1pf" path="res://Scenes/scoreboard.gd" id="8_dvypr"]
+[ext_resource type="Script" uid="uid://bht58i38h6hw4" path="res://Scenes/connection_menu.gd" id="9_4nh5h"]
+[ext_resource type="Script" uid="uid://c53lsrk76u0xn" path="res://Scenes/network_manager.gd" id="9_v0cjs"]
+[ext_resource type="Texture2D" uid="uid://oeh60htna6j1" path="res://Characters/Alvin-alvin-and-the-chipmunks-3-chip-wrecked-27096005-993-1400.webp" id="11_u7adw"]
+[ext_resource type="Script" uid="uid://b1oe4482fuqua" path="res://Scenes/steam_manager.gd" id="12_5q487"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7phgy"]
+size = Vector2(96.89404, 8.970399)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piaew"]
+size = Vector2(24.699203, 39.2168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfo4q"]
+size = Vector2(34.15095, 2.8641677)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmoo5"]
+size = Vector2(115.39849, 162.62126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rui10"]
+size = Vector2(467.35745, 660.9276)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0m3sy"]
+size = Vector2(3805.0647, 1062)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6446"]
+size = Vector2(429, 730)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8vdc"]
+size = Vector2(991, 1243.5)
+
+[node name="Playfield" type="Node2D" unique_id=1599695223]
+
+[node name="BlueSpawns" type="Node2D" parent="." unique_id=112006624]
+
+[node name="BlueSpawns4" type="Marker2D" parent="BlueSpawns" unique_id=1076428356]
+position = Vector2(1434, 1676)
+
+[node name="BlueSpawns3" type="Marker2D" parent="BlueSpawns" unique_id=2019210865]
+position = Vector2(717, 2333)
+
+[node name="BlueSpawns2" type="Marker2D" parent="BlueSpawns" unique_id=1600778186]
+position = Vector2(717, 1030)
+
+[node name="BlueSpawns1" type="Marker2D" parent="BlueSpawns" unique_id=1943806505]
+position = Vector2(717, 1676)
+
+[node name="RedSpawns" type="Node2D" parent="." unique_id=2025278542]
+
+[node name="RedSpawn3" type="Marker2D" parent="RedSpawns" unique_id=1933290754]
+position = Vector2(4196, 1030)
+
+[node name="RedSpawn1" type="Marker2D" parent="RedSpawns" unique_id=1508421841]
+position = Vector2(4196, 1676)
+
+[node name="RedSpawn2" type="Marker2D" parent="RedSpawns" unique_id=1833932252]
+position = Vector2(4196, 2333)
+
+[node name="RedSpawn4" type="Marker2D" parent="RedSpawns" unique_id=881023211]
+position = Vector2(3509.365, 1676)
+
+[node name="Backgrounds" type="Node2D" parent="." unique_id=2020501720]
+
+[node name="Pitch" type="Sprite2D" parent="Backgrounds" unique_id=2145360293]
+scale = Vector2(5, 5)
+texture = ExtResource("1_i3sgj")
+centered = false
+
+[node name="Field" type="Sprite2D" parent="Backgrounds" unique_id=1077240842]
+position = Vector2(7245.75, 1679.4999)
+scale = Vector2(5.060776, 4.9985037)
+texture = ExtResource("2_l7lok")
+
+[node name="Field2" type="Sprite2D" parent="Backgrounds" unique_id=603401767]
+position = Vector2(-2371.75, 1690.5)
+scale = Vector2(4.903473, 4.980539)
+texture = ExtResource("2_l7lok")
+
+[node name="Field3" type="Sprite2D" parent="Backgrounds" unique_id=1015123811]
+position = Vector2(1934, -1247)
+scale = Vector2(14.819714, 3.9640718)
+texture = ExtResource("2_l7lok")
+
+[node name="Field4" type="Sprite2D" parent="Backgrounds" unique_id=381322319]
+position = Vector2(2465, 4162.0005)
+scale = Vector2(14.88713, 2.747006)
+texture = ExtResource("2_l7lok")
+
+[node name="Ball" parent="." unique_id=2104653354 instance=ExtResource("3_xks4p")]
+position = Vector2(2458, 1668)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=372308764]
+position = Vector2(2451, 1676)
+offset = Vector2(-36.82, 0)
+zoom = Vector2(0.165, 0.165)
+
+[node name="Goal_Red" parent="." unique_id=2068351791 instance=ExtResource("4_c6dkp")]
+position = Vector2(4782, 1675)
+
+[node name="Goal_Blue" parent="." unique_id=1458467740 instance=ExtResource("4_c6dkp")]
+position = Vector2(-112, 1677)
+defending_team = "blue"
+
+[node name="Ballspawn" type="Marker2D" parent="." unique_id=998575532]
+position = Vector2(2465, 1674)
+
+[node name="MatchManager" type="Node" parent="." unique_id=108808477 node_paths=PackedStringArray("players_parent", "red_goal", "blue_goal", "ball", "ball_spawn", "red_player_spawns", "blue_player_spawns")]
+script = ExtResource("5_i3sgj")
+players_parent = NodePath("../Players")
+red_goal = NodePath("../Goal_Red")
+blue_goal = NodePath("../Goal_Blue")
+ball = NodePath("../Ball")
+ball_spawn = NodePath("../Ballspawn")
+red_player_spawns = [NodePath("../RedSpawns/RedSpawn1"), NodePath("../RedSpawns/RedSpawn2"), NodePath("../RedSpawns/RedSpawn3"), NodePath("../RedSpawns/RedSpawn4")]
+blue_player_spawns = [NodePath("../BlueSpawns/BlueSpawns1"), NodePath("../BlueSpawns/BlueSpawns2"), NodePath("../BlueSpawns/BlueSpawns3"), NodePath("../BlueSpawns/BlueSpawns4")]
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=38469561]
+
+[node name="Topwall" type="CollisionShape2D" parent="Walls" unique_id=246090255]
+position = Vector2(2464.4, 286.1)
+scale = Vector2(46.62, 46.62)
+shape = SubResource("RectangleShape2D_7phgy")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls" unique_id=1746121343]
+position = Vector2(-19.399992, 2543.5)
+scale = Vector2(17.62, 17.62)
+shape = SubResource("RectangleShape2D_piaew")
+
+[node name="Bottomwall" type="CollisionShape2D" parent="Walls" unique_id=877512497]
+position = Vector2(2532, 3060)
+scale = Vector2(141.865, 141.865)
+shape = SubResource("RectangleShape2D_qfo4q")
+
+[node name="Rightwall" type="CollisionShape2D" parent="Walls" unique_id=903448957]
+position = Vector2(4947.1626, 809.925)
+scale = Vector2(4.33, 4.33)
+shape = SubResource("RectangleShape2D_rmoo5")
+
+[node name="Rightwall2" type="CollisionShape2D" parent="Walls" unique_id=2134858468]
+position = Vector2(4934.3213, 2523.4639)
+shape = SubResource("RectangleShape2D_rui10")
+
+[node name="Goalborderright" type="CollisionShape2D" parent="Walls" unique_id=115374956]
+position = Vector2(7016, 1683)
+shape = SubResource("RectangleShape2D_0m3sy")
+
+[node name="LeftWall2" type="CollisionShape2D" parent="Walls" unique_id=284990699]
+position = Vector2(-12.5, 802)
+shape = SubResource("RectangleShape2D_i6446")
+
+[node name="Goalborderleft" type="CollisionShape2D" parent="Walls" unique_id=2146746482]
+position = Vector2(-671.5, 1674)
+shape = SubResource("RectangleShape2D_s8vdc")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1950447447]
+
+[node name="Teamselection" type="Control" parent="HUD" unique_id=543759078 node_paths=PackedStringArray("match_manager", "players_parent")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+script = ExtResource("1_hvj5s")
+match_manager = NodePath("../../MatchManager")
+players_parent = NodePath("../../Players")
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD/Teamselection" unique_id=52551257]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/Teamselection/CenterContainer" unique_id=219768674]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Teamselection/CenterContainer/PanelContainer" unique_id=176419887]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HUD/Teamselection/CenterContainer/PanelContainer/VBox" unique_id=500510031]
+layout_mode = 2
+
+[node name="TeamButtons" type="HBoxContainer" parent="HUD/Teamselection/CenterContainer/PanelContainer/VBox" unique_id=1066781992]
+layout_mode = 2
+
+[node name="BlueButton" type="Button" parent="HUD/Teamselection/CenterContainer/PanelContainer/VBox/TeamButtons" unique_id=1964195798]
+layout_mode = 2
+text = "b jbhbbn"
+
+[node name="RedButton" type="Button" parent="HUD/Teamselection/CenterContainer/PanelContainer/VBox/TeamButtons" unique_id=965243535]
+layout_mode = 2
+text = "adasdasda"
+
+[node name="StartButton" type="Button" parent="HUD/Teamselection/CenterContainer/PanelContainer/VBox" unique_id=479992763]
+layout_mode = 2
+text = "Start Game"
+
+[node name="StatusLabel" type="Label" parent="HUD/Teamselection/CenterContainer/PanelContainer/VBox" unique_id=1658740991]
+layout_mode = 2
+text = "Choose a Nigger"
+
+[node name="Scoreboard" type="Control" parent="HUD" unique_id=833034980 node_paths=PackedStringArray("match_manager")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_dvypr")
+match_manager = NodePath("../../MatchManager")
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/Scoreboard" unique_id=691574389]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 492.945
+offset_top = 7.62
+offset_right = 604.94507
+offset_bottom = 46.62
+grow_horizontal = 2
+
+[node name="ScoreLabel" type="Label" parent="HUD/Scoreboard/PanelContainer" unique_id=1846172560]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "BLUE 0 - 0 RED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ConnectionMenu" type="Control" parent="HUD" unique_id=2127519479 node_paths=PackedStringArray("network_manager")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_4nh5h")
+network_manager = NodePath("../../NetworkManager")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/ConnectionMenu" unique_id=1389266364]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.37
+offset_top = 7.613
+offset_right = 139.11398
+offset_bottom = 95.61301
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HostButton" type="Button" parent="HUD/ConnectionMenu/VBoxContainer" unique_id=1460486085]
+layout_mode = 2
+text = "Host"
+
+[node name="JoinButton" type="Button" parent="HUD/ConnectionMenu/VBoxContainer" unique_id=1017763517]
+layout_mode = 2
+text = "Invite Friends"
+
+[node name="ConnectionLabel" type="Label" parent="HUD/ConnectionMenu/VBoxContainer" unique_id=987852603]
+layout_mode = 2
+text = "Not connected"
+
+[node name="NetworkManager" type="Node" parent="." unique_id=1820438459 node_paths=PackedStringArray("player_spawner", "players_parent")]
+script = ExtResource("9_v0cjs")
+player_scene = ExtResource("2_gsl2p")
+player_spawner = NodePath("../MultiplayerSpawner")
+players_parent = NodePath("../Players")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1560938156]
+spawn_path = NodePath("../Players")
+
+[node name="Players" type="Node2D" parent="." unique_id=275709616]
+
+[node name="AlvinAlvinAndTheChipmunks3ChipWrecked270960059931400" type="Sprite2D" parent="." unique_id=1602788062]
+position = Vector2(4905.8755, 1674)
+scale = Vector2(0.24748276, 0.5900001)
+texture = ExtResource("11_u7adw")
+
+[node name="Steam_Manager" type="Node" parent="." unique_id=780436784]
+script = ExtResource("12_5q487")

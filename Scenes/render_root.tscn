@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scenes/render_root.gd" id="1_render_root"]
+[ext_resource type="PackedScene" uid="uid://c8ih3461ygx6v" path="res://Scenes/playfield.tscn" id="2_playfield"]
+[ext_resource type="Shader" path="res://Scenes/ssaa_resolve.gdshader" id="3_resolve"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_resolve"]
+shader = ExtResource("3_resolve")
+shader_parameter/resolve_scale = Vector2(2, 2)
+
+[node name="RenderRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_render_root")
+
+[node name="RenderContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+scale = Vector2(0.3, 0.3)
+texture_filter = 2
+material = SubResource("ShaderMaterial_resolve")
+stretch = false
+mouse_filter = 0
+
+[node name="GameViewport" type="SubViewport" parent="RenderContainer"]
+handle_input_locally = false
+disable_3d = true
+size = Vector2i(3840, 2160)
+size_2d_override = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+msaa_2d = 1
+screen_space_aa = 0
+canvas_item_default_texture_filter = 1
+
+[node name="Playfield" parent="RenderContainer/GameViewport" instance=ExtResource("2_playfield")]

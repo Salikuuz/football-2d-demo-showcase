@@ -1,0 +1,13 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="bubble" cx="34%" cy="28%" r="68%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="0.56" stop-color="#63e8ff" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#63e8ff" stop-opacity="0.34"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="24" fill="url(#bubble)" stroke="#bff8ff" stroke-width="4"/>
+  <path d="M18 27c2-7 7-11 14-13" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="43" cy="43" r="3" fill="#ffffff" opacity="0.7"/>
+</svg>

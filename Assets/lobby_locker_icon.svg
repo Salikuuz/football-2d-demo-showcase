@@ -1,0 +1,6 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M32 11C32 7.686 34.686 5 38 5C41.314 5 44 7.686 44 11C44 15.1 40.2 16.9 35.9 19.7L32 22" stroke="#B5E7F7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M32 22L11 38C8.8 39.7 10 43.2 12.8 43.2H51.2C54 43.2 55.2 39.7 53 38L32 22Z" fill="#73C8E5" fill-opacity="0.16" stroke="#73C8E5" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M19 43V54H45V43" stroke="#B5E7F7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

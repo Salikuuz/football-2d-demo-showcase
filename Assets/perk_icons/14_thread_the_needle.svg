@@ -1,0 +1,9 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <g stroke="#101b3d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 24v80M107 24v80" fill="none" stroke="#7357e8" stroke-width="14"/>
+    <circle cx="38" cy="64" r="20" fill="#f4fbff"/>
+    <path d="m38 52 8 6-3 10H33l-3-10z" fill="#42bfff"/>
+    <path d="M61 64h42m0 0-14-12m14 12L89 76" fill="none" stroke="#42bfff"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="g1" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff73b8"/>
+      <stop offset="0.55" stop-color="#ff4f94"/>
+      <stop offset="1" stop-color="#c63c74"/>
+    </linearGradient>
+  </defs>
+  <path d="M97 25h18M89 38h24" stroke="#ff69b6" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="92" cy="47" r="15" fill="#fff1fb" stroke="#ff5eaf" stroke-width="5"/>
+  <path d="M90 47 98 53 95 63H84l-4-10z" fill="#ff8dc8" opacity=".55"/>
+  <path d="M92 66c-2 15-11 26-23 34-13 9-28 13-44 12" fill="none" stroke="#36152c" stroke-width="18" stroke-linecap="round"/>
+  <path d="M92 66c-2 15-11 26-23 34-13 9-28 13-44 12" fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M27 97 9 112h27" fill="none" stroke="#ffb4da" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M43 85 57 92M50 74 64 80" stroke="#a54cff" stroke-width="6" stroke-linecap="round"/>
+  <path d="M21 25l3 7 8 1-6 6 1 8-7-4-8 4 2-8-6-6 8-1z" fill="#fff07d" stroke="#5b3667" stroke-width="2"/>
+  <path d="M35 110c17-1 31-6 42-14" fill="none" stroke="#ffd0ea" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+</svg>

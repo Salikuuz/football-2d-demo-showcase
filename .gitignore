@@ -1,0 +1,15 @@
+# Godot generated/import cache
+.godot/
+
+# Local/export output
+game/mobile_web/
+
+# Local test/editor scratch
+.test-*/
+.test-appdata*/
+.godot_backup_*/
+*.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

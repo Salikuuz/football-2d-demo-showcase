@@ -1,0 +1,568 @@
+[gd_scene format=3 uid="uid://j4ougvk1x6w8"]
+
+[ext_resource type="Texture2D" uid="uid://dhb61s7fpfy6c" path="res://Characters/player_shadow_disc.svg" id="1_5mj4t"]
+[ext_resource type="Script" uid="uid://bhaj1tdwctwnd" path="res://Characters/player.gd" id="1_eovys"]
+[ext_resource type="Script" path="res://Characters/player_cosmetic_layer.gd" id="2_cosmetic_cache"]
+[ext_resource type="Script" path="res://Characters/soft_glow_fx.gd" id="3_soft_glow_fx"]
+[ext_resource type="Script" path="res://Characters/ability_gpu_particles.gd" id="3_ability_gpu_particles"]
+[ext_resource type="Script" uid="uid://c3jlirlhtf45n" path="res://Characters/shot_sound_tier.gd" id="2_shot_tier"]
+[ext_resource type="AudioStream" uid="uid://bl7t2avr4khyv" path="res://mixkit-hitting-soccer-ball-2112-godot.mp3" id="3_65n15"]
+[ext_resource type="Texture2D" uid="uid://c8l8rsau21vgy" path="res://Characters/ability_particle.svg" id="4_ability_particle"]
+[ext_resource type="Texture2D" uid="uid://7wl1mnlty81x" path="res://Characters/ability_burst.svg" id="5_skin_burst"]
+[ext_resource type="Texture2D" uid="uid://d4makbxetuq6y" path="res://Characters/ability_quick_trigger.svg" id="6_skin_curve"]
+[ext_resource type="Texture2D" uid="uid://cd34cm85ra0of" path="res://Characters/ability_power_strike.svg" id="7_skin_power"]
+[ext_resource type="Texture2D" uid="uid://dve2ytc1etr06" path="res://Characters/ability_overdrive.svg" id="8_skin_overdrive"]
+[ext_resource type="Texture2D" uid="uid://dn3qwkl1ivd3r" path="res://Characters/ability_heel_turn.svg" id="9_skin_heel"]
+[ext_resource type="Texture2D" uid="uid://cm8irdh0gyydj" path="res://Characters/ability_enforcer.svg" id="10_skin_enforcer"]
+[ext_resource type="Texture2D" uid="uid://ddqmylu1bhd80" path="res://Characters/ability_goalkeeper_reach.svg" id="11_skin_goalkeeper"]
+[ext_resource type="Texture2D" uid="uid://dysn74kv8cgl8" path="res://Characters/ability_time_skip_pass.svg" id="12_skin_time_skip"]
+[ext_resource type="Texture2D" uid="uid://brhliho7b4s0g" path="res://Characters/ability_direct_finish.svg" id="13_skin_direct"]
+[ext_resource type="Texture2D" uid="uid://5bkpi7hvxemc" path="res://Characters/ability_elastic_step.svg" id="14_skin_elastic"]
+[ext_resource type="Texture2D" uid="uid://p5b2e6ajuaq2" path="res://Characters/ability_meta_vision.svg" id="15_skin_meta"]
+[ext_resource type="Texture2D" uid="uid://bms2l7dr8ajyi" path="res://Characters/ability_copycat.svg" id="16_skin_copycat"]
+[ext_resource type="Texture2D" uid="uid://ipfgqy13srle" path="res://Characters/ability_reflex_block.svg" id="17_skin_reflex"]
+[ext_resource type="Texture2D" uid="uid://7erxp76dpxqn" path="res://Characters/ability_iron_anchor.svg" id="18_skin_iron"]
+[ext_resource type="Texture2D" uid="uid://baur10s54vh7q" path="res://Characters/ability_blind_spot.svg" id="19_skin_blind"]
+[ext_resource type="Texture2D" uid="uid://btpmf6dq63crd" path="res://Characters/ability_boogie_woogie.svg" id="20_skin_boogie"]
+[ext_resource type="AudioStream" uid="uid://dboaj7r58jfep" path="res://pump-shotgun.mp3" id="21_power_strike_sound"]
+[ext_resource type="AudioStream" path="res://Audio/sfx_kick_normal.wav" id="30_kick_normal"]
+[ext_resource type="AudioStream" path="res://Audio/sfx_kick_strong.wav" id="31_kick_strong"]
+[ext_resource type="AudioStream" path="res://Audio/sfx_kick_full.wav" id="32_kick_full"]
+[ext_resource type="Texture2D" uid="uid://d2266ddpf31q8" path="res://Assets/player_direction_arrow.svg" id="22_direction_arrow"]
+[ext_resource type="Texture2D" uid="uid://dlb2d3x1soahi" path="res://Characters/ability_echo.svg" id="23_skin_echo"]
+[ext_resource type="Texture2D" uid="uid://cgbmnki0qlpa3" path="res://Characters/ability_return_tag.svg" id="24_skin_return_tag"]
+[ext_resource type="Texture2D" uid="uid://cwce3pdd3ro1b" path="res://Characters/ability_breakaway.png" id="25_skin_breakaway"]
+[ext_resource type="Texture2D" uid="uid://cbihcxg5n0kky" path="res://Characters/ability_snapback.svg" id="26_skin_snapback"]
+[ext_resource type="Texture2D" uid="uid://bhia0j4wx3bbp" path="res://Characters/ability_side_swipe.svg" id="27_skin_side_swipe"]
+[ext_resource type="Texture2D" uid="uid://c2lmafcxyxu3w" path="res://Characters/ability_nutmeg.svg" id="28_skin_nutmeg"]
+[ext_resource type="Texture2D" uid="uid://bwqyr4ndynmjh" path="res://Characters/ability_decoy_run.svg" id="29_skin_decoy"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_player_slide"]
+friction = 0.0
+
+[sub_resource type="Resource" id="Resource_default_kick"]
+script = ExtResource("2_shot_tier")
+sound = ExtResource("30_kick_normal")
+volume_db = -6.5
+pitch_scale = 1.0
+
+[sub_resource type="Resource" id="Resource_7yf8l"]
+script = ExtResource("2_shot_tier")
+minimum_force = 2150.0
+sound = ExtResource("31_kick_strong")
+volume_db = -4.8
+pitch_scale = 0.99
+metadata/_custom_type_script = "uid://c3jlirlhtf45n"
+
+[sub_resource type="Resource" id="Resource_65n15"]
+script = ExtResource("2_shot_tier")
+minimum_force = 2700.0
+sound = ExtResource("32_kick_full")
+volume_db = -3.0
+pitch_scale = 0.98
+metadata/_custom_type_script = "uid://c3jlirlhtf45n"
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ywxx0"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 2
+properties/2/path = NodePath(".:linear_velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 0
+properties/3/path = NodePath(".:angular_velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+properties/4/path = NodePath(".:modulate")
+properties/4/spawn = true
+properties/4/replication_mode = 2
+properties/5/path = NodePath(".:team")
+properties/5/spawn = true
+properties/5/replication_mode = 2
+properties/6/path = NodePath(".:team_slot")
+properties/6/spawn = true
+properties/6/replication_mode = 2
+properties/7/path = NodePath(".:controls_enabled")
+properties/7/spawn = true
+properties/7/replication_mode = 2
+properties/8/path = NodePath(".:display_name")
+properties/8/spawn = true
+properties/8/replication_mode = 2
+properties/9/path = NodePath(".:selected_ability")
+properties/9/spawn = true
+properties/9/replication_mode = 2
+properties/10/path = NodePath(".:cpu_controlled")
+properties/10/spawn = true
+properties/10/replication_mode = 2
+properties/11/path = NodePath(".:cosmetic_loadout")
+properties/11/spawn = true
+properties/11/replication_mode = 2
+properties/12/path = NodePath(".:network_position")
+properties/12/spawn = true
+properties/12/replication_mode = 1
+properties/13/path = NodePath(".:network_linear_velocity")
+properties/13/spawn = true
+properties/13/replication_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ability_main"]
+emission_shape = 1
+emission_sphere_radius = 126.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 75.0
+initial_velocity_max = 190.0
+scale_min = 0.72
+scale_max = 1.26
+color = Color(0.04, 0.72, 0.2, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ability_pulse"]
+emission_shape = 1
+emission_sphere_radius = 112.0
+direction = Vector3(0, -1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 28.0
+initial_velocity_max = 82.0
+scale_min = 1.25
+scale_max = 2.0
+color = Color(0.02, 0.42, 0.1, 0.82)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_quick_chat_bubble"]
+bg_color = Color(0.035, 0.05, 0.075, 0.94)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.75, 0.9, 1, 0.95)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="Shader" id="Shader_ability_portrait_mask"]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 source = texture(TEXTURE, UV);
+	float distance_from_center = distance(UV, vec2(0.5));
+	float edge_width = max(fwidth(distance_from_center) * 1.25, 0.0015);
+	float circle_alpha = 1.0 - smoothstep(0.5 - edge_width, 0.5 + edge_width, distance_from_center);
+	COLOR = vec4(source.rgb, source.a * circle_alpha);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ability_portrait_mask"]
+shader = SubResource("Shader_ability_portrait_mask")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ywxx0"]
+radius = 119.0042
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_piaew"]
+radius = 337.8199
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goalkeeper_reach"]
+radius = 100.0
+
+[node name="Player" type="RigidBody2D" unique_id=11920398]
+texture_filter = 4
+physics_interpolation_mode = 1
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_player_slide")
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 8
+linear_damp = 5.0
+script = ExtResource("1_eovys")
+maximum_charge_seconds = 0.5
+shot_buffer_seconds = 0.0
+soft_pass_force = 1820.0
+direction_arrow_distance = 215.0
+direction_arrow_scale_multiplier = 1.0
+burst_dribble_skin = ExtResource("5_skin_burst")
+curve_shot_skin = ExtResource("6_skin_curve")
+power_strike_skin = ExtResource("7_skin_power")
+overdrive_skin = ExtResource("8_skin_overdrive")
+heel_turn_skin = ExtResource("9_skin_heel")
+enforcer_skin = ExtResource("10_skin_enforcer")
+goalkeeper_reach_skin = ExtResource("11_skin_goalkeeper")
+time_skip_pass_skin = ExtResource("12_skin_time_skip")
+direct_finish_skin = ExtResource("13_skin_direct")
+elastic_step_skin = ExtResource("14_skin_elastic")
+meta_vision_skin = ExtResource("15_skin_meta")
+copycat_skin = ExtResource("16_skin_copycat")
+reflex_block_skin = ExtResource("17_skin_reflex")
+iron_anchor_skin = ExtResource("18_skin_iron")
+blind_spot_skin = ExtResource("19_skin_blind")
+boogie_woogie_skin = ExtResource("20_skin_boogie")
+echo_skin = ExtResource("23_skin_echo")
+return_tag_skin = ExtResource("24_skin_return_tag")
+breakaway_skin = ExtResource("25_skin_breakaway")
+snapback_skin = ExtResource("26_skin_snapback")
+side_swipe_skin = ExtResource("27_skin_side_swipe")
+nutmeg_skin = ExtResource("28_skin_nutmeg")
+decoy_run_skin = ExtResource("29_skin_decoy")
+ability_skin_diameter = 188.0
+burst_cooldown = 9.0
+burst_impulse = 950.0
+burst_acceleration_multiplier = 4.4
+burst_speed_multiplier = 1.6
+curve_shot_effect_duration = 3.0
+curve_shot_ball_duration = 1.6
+curve_shot_steering_radians_per_second = 1.0
+curve_shot_minimum_ball_speed = 600.0
+curve_shot_goal_assist_strength = 0.21
+curve_shot_blocker_search_radius = 970.155
+power_strike_duration = 3.5
+power_strike_cooldown = 12.0
+power_strike_force_multiplier = 1.85
+overdrive_duration = 2.5
+overdrive_cooldown = 12.5
+overdrive_speed_multiplier = 1.65
+overdrive_acceleration_multiplier = 1.65
+heel_turn_cooldown = 9.0
+heel_turn_ball_speed = 10.0
+enforcer_duration = 8.0
+enforcer_cooldown = 10.0
+enforcer_player_kick_force_multiplier = 1.8
+goalkeeper_reach_cooldown = 10.0
+time_skip_pass_initial_speed = 5200.0
+direct_finish_activation_radius = 560.0
+direct_finish_trap_control_distance = 65.0
+elastic_step_cooldown = 8.5
+elastic_step_dash_speed = 2050.0
+elastic_step_orbit_distance = 235.0
+elastic_step_speed_multiplier = 1.4
+meta_vision_duration = 12.0
+meta_vision_prediction_steps = 36
+echo_duration = 5.5
+breakaway_ball_speed = 4200.0
+snapback_recall_window = 1.7
+side_swipe_pass_force = 2100.0
+side_swipe_shot_force_multiplier = 1.12
+side_swipe_minimum_shot_ratio = 0.5
+nutmeg_cooldown = 12.0
+shot_sound_tiers = Array[ExtResource("2_shot_tier")]([SubResource("Resource_default_kick"), SubResource("Resource_7yf8l"), SubResource("Resource_65n15")])
+power_strike_shot_sound = ExtResource("21_power_strike_sound")
+ball_contact_squash_amount = 0.25
+
+[node name="CosmeticStaticViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(384, 384)
+render_target_update_mode = 1
+
+[node name="CosmeticStaticLayer" type="Node2D" parent="CosmeticStaticViewport"]
+position = Vector2(192, 192)
+script = ExtResource("2_cosmetic_cache")
+layer_kind = "static"
+
+[node name="PlayerGlowFX" type="Node2D" parent="."]
+z_index = 0
+script = ExtResource("3_soft_glow_fx")
+base_radius = 235.0
+glow_alpha = 0.32
+pulse_amount = 0.025
+pulse_speed = 0.65
+
+[node name="CosmeticStaticSprite" type="Sprite2D" parent="."]
+z_index = 0
+texture_filter = 2
+
+[node name="CosmeticAnimatedLayer" type="Node2D" parent="."]
+z_index = 0
+script = ExtResource("2_cosmetic_cache")
+layer_kind = "animated"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1193596037]
+# Movement snapshots follow the 60 Hz authoritative physics simulation. Clients
+# smooth these snapshots visually but never run their own player timeline.
+replication_interval = 0.016666666666666666
+replication_config = SubResource("SceneReplicationConfig_ywxx0")
+
+[node name="NameLabel" type="Label" parent="." unique_id=2071657535]
+z_index = 2
+offset_left = -498.0
+offset_top = 58.0
+offset_right = 502.0
+offset_bottom = 248.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.88)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 7
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 69
+text = "You"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuickChatBubble" type="PanelContainer" parent="." unique_id=1621467615]
+visible = false
+z_index = 20
+offset_left = -420.0
+offset_top = -520.0
+offset_right = 420.0
+offset_bottom = -320.0
+theme_override_styles/panel = SubResource("StyleBox_quick_chat_bubble")
+
+[node name="Label" type="Label" parent="QuickChatBubble" unique_id=2098621935]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.9)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 54
+text = "Nice shot!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ShotChargeBar" type="ProgressBar" parent="." unique_id=1644996767]
+z_index = 3
+offset_left = 175.0
+offset_top = 105.0
+offset_right = 355.0
+offset_bottom = 137.0
+rotation = -1.5707964
+max_value = 1.0
+step = 0.001
+show_percentage = false
+
+[node name="ShotChargeReadout" type="Label" parent="." unique_id=182703036]
+visible = false
+z_index = 4
+offset_left = 210.0
+offset_top = -30.0
+offset_right = 570.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.25, 0.85, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.95)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 34
+vertical_alignment = 1
+
+[node name="LocalPlayerMarker" type="Label" parent="." unique_id=410100669]
+visible = false
+z_index = 4
+offset_left = -180.0
+offset_top = -284.0
+offset_right = 180.0
+offset_bottom = -69.0
+theme_override_colors/font_color = Color(1, 0.85, 0.15, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 22
+theme_override_font_sizes/font_size = 113
+text = "✦"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PassRequestMarker" type="Label" parent="." unique_id=804476449]
+visible = false
+z_index = 7
+offset_left = -170.0
+offset_top = -470.0
+offset_right = 170.0
+offset_bottom = -250.0
+theme_override_colors/font_color = Color(1, 0.86, 0.18, 1)
+theme_override_colors/font_outline_color = Color(0.08, 0.06, 0.02, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 128
+text = "!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KickRangeIndicator" type="Line2D" parent="." unique_id=826379400]
+visible = false
+width = 6.0
+default_color = Color(0.4, 0.72, 1, 0.24)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="ShotAimGuide" type="Line2D" parent="." unique_id=844646147]
+visible = false
+z_index = 5
+width = 9.0
+default_color = Color(0.68, 0.94, 1, 0.88)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="ShotDirectionPreview" type="Line2D" parent="." unique_id=1622485432]
+visible = false
+z_index = 5
+width = 8.0
+default_color = Color(0.25, 0.85, 1, 0.78)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="ShotDirectionArrow" type="Line2D" parent="." unique_id=789622282]
+visible = false
+z_index = 5
+width = 8.0
+default_color = Color(0.25, 0.85, 1, 0.78)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="ShotBounceMarker" type="Line2D" parent="." unique_id=1548986582]
+visible = false
+z_index = 5
+width = 6.0
+default_color = Color(0.25, 0.85, 1, 0.65)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MovementDirectionArrow" type="Sprite2D" parent="." unique_id=204400001]
+visible = false
+modulate = Color(1, 1, 1, 0.26)
+z_index = 6
+texture_filter = 4
+position = Vector2(215, 0)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("22_direction_arrow")
+offset = Vector2(18, 0)
+
+[node name="ShotAudio" type="AudioStreamPlayer2D" parent="." unique_id=1460462858]
+max_distance = 10000.0
+
+[node name="CurveShotAudio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 10000.0
+
+[node name="DeadZonePassAudio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 10000.0
+
+[node name="ReflexBlockAudio" type="AudioStreamPlayer2D" parent="."]
+max_distance = 10000.0
+
+[node name="AbilityAudio" type="AudioStreamPlayer" parent="." unique_id=835864284]
+
+[node name="PassRequestAudio" type="AudioStreamPlayer" parent="." unique_id=763364587]
+
+[node name="AbilityParticles" type="GPUParticles2D" parent="." unique_id=653650266]
+z_index = 3
+emitting = false
+amount = 56
+one_shot = true
+explosiveness = 0.82
+lifetime = 0.72
+preprocess = 0.0
+visibility_rect = Rect2(-420, -420, 840, 840)
+local_coords = false
+process_material = SubResource("ParticleProcessMaterial_ability_main")
+texture = ExtResource("4_ability_particle")
+script = ExtResource("3_ability_gpu_particles")
+
+[node name="AbilityPulseParticles" type="GPUParticles2D" parent="." unique_id=234976375]
+z_index = 2
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.94
+lifetime = 0.44
+preprocess = 0.0
+visibility_rect = Rect2(-360, -360, 720, 720)
+local_coords = false
+process_material = SubResource("ParticleProcessMaterial_ability_pulse")
+texture = ExtResource("4_ability_particle")
+script = ExtResource("3_ability_gpu_particles")
+
+[node name="Testplaxayer2" type="Sprite2D" parent="." unique_id=71161625]
+visible = false
+z_index = 1
+texture_filter = 4
+position = Vector2(0, -5)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_5mj4t")
+
+[node name="AbilityPortrait" type="TextureRect" parent="." unique_id=1669034237]
+z_index = 1
+texture_filter = 4
+material = SubResource("ShaderMaterial_ability_portrait_mask")
+offset_left = -82.0
+offset_top = -82.0
+offset_right = 82.0
+offset_bottom = 82.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MetaVisionTrajectory" type="Line2D" parent="." unique_id=931172909]
+visible = false
+z_index = 5
+width = 18.0
+default_color = Color(0.33, 0.85, 1, 0.82)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MetaVisionLandingMarker" type="Line2D" parent="." unique_id=1578388715]
+visible = false
+z_index = 5
+width = 24.0
+default_color = Color(0.85, 1, 0.94, 0.95)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MetaVisionInterceptPath" type="Line2D" parent="." unique_id=918380471]
+visible = false
+z_index = 6
+default_color = Color(0.22, 1, 0.48, 0.72)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MetaVisionOwnInterceptMarker" type="Line2D" parent="." unique_id=570005720]
+visible = false
+z_index = 7
+width = 18.0
+default_color = Color(0.22, 1, 0.48, 0.95)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MetaVisionEnemyInterceptMarker" type="Line2D" parent="." unique_id=149374957]
+visible = false
+z_index = 7
+width = 18.0
+default_color = Color(1, 0.18, 0.24, 0.95)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=282019260]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_ywxx0")
+
+[node name="KickArea" type="Area2D" parent="." unique_id=402968278]
+scale = Vector2(0.75, 0.75)
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KickArea" unique_id=1002802974]
+scale = Vector2(0.75, 0.75)
+shape = SubResource("CircleShape2D_piaew")
+
+[node name="GoalkeeperReachArea" type="Area2D" parent="." unique_id=1295733180]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalkeeperReachArea" unique_id=1058099472]
+shape = SubResource("CircleShape2D_goalkeeper_reach")

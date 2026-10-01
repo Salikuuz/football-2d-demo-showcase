@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3]
+
+[sub_resource type="Shader" id="Shader_mirage_field_brown"]
+code = "shader_type canvas_item;\n\nvoid fragment() {\n    vec4 tex = texture(TEXTURE, UV);\n    float highest = max(tex.r, max(tex.g, tex.b));\n    float lowest = min(tex.r, min(tex.g, tex.b));\n    float chroma = highest - lowest;\n    float luminance = dot(tex.rgb, vec3(0.299, 0.587, 0.114));\n    vec3 dark_brown = vec3(0.31, 0.18, 0.09);\n    vec3 light_brown = vec3(0.95, 0.72, 0.43);\n    vec3 brown = mix(dark_brown, light_brown, clamp(luminance * 1.35, 0.0, 1.0));\n    float colored_pixel = smoothstep(0.055, 0.18, chroma);\n    vec3 filtered = mix(tex.rgb, brown, colored_pixel);\n    float distance_from_center = distance(UV, vec2(0.5));\n    float circle_alpha = 1.0 - smoothstep(0.493, 0.5, distance_from_center);\n    COLOR = vec4(filtered, tex.a * circle_alpha) * COLOR;\n}\n"
+
+[resource]
+shader = SubResource("Shader_mirage_field_brown")

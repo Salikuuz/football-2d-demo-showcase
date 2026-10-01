@@ -1,0 +1,53 @@
+{
+  "generation": "G002",
+  "run_id": "20260811_022555",
+  "champion_changed": false,
+  "worker0_note": {
+    "benchmark_missing": true,
+    "reason": "Worker 0 model checksum is identical to the pre-generation/main champion, so it was a duplicate rather than an unevaluated new candidate.",
+    "model_checksum": "007f42ae70827588693b5ffc74f272de8df98deb36f6da2e2c3d382494b22a99"
+  },
+  "best_new_candidate": {
+    "name": "worker_4",
+    "full_suite_win_score": 0.557692307692308,
+    "promotion_floor": 0.56,
+    "goal_difference_per_match": 0.384615384615385,
+    "own_goal_rate": 0.0,
+    "collapse_detected": false,
+    "diversity_passed": true,
+    "pure_1v1_record": {
+      "matches": 14,
+      "wins": 8,
+      "draws": 2,
+      "losses": 4,
+      "win_score_from_results": 0.6428571428571429,
+      "goals_for": 20,
+      "goals_against": 10,
+      "goal_difference_per_match": 0.7142857142857143
+    }
+  },
+  "g001_vs_g002_signal": {
+    "g002_improved": {
+      "original_1v1": "G001 champion: 0W/1D, 0-1 goals; G002 W4: 1W/1D, 1-0 goals",
+      "passing_1v1": "G001 champion: 0W/1D, 1-2 goals; G002 W4: 2W/0D, 5-1 goals",
+      "aggressive_1v1": "G001 champion: 2W, 3-1 goals; G002 W4: 2W, 4-0 goals"
+    },
+    "g002_regressed": {
+      "previous_best_1v1": "G001 champion: 1W, 3-3 goals; G002 W4: 0W/1D, 2-3 goals",
+      "wall_defender_1v1": "G001 champion: 2W, 4-0 goals; G002 W4: 1W/1L, 2-1 goals",
+      "wall_shot_1v1": "G001 champion: 2W, 4-2 goals; G002 W4: 1W/1L, 3-2 goals",
+      "defensive_1v1": "G001 champion: 1W/1D, 2-1 goals; G002 W4: 1W/1L, 3-3 goals"
+    },
+    "diagnosis": "G002 successfully learned the targeted new counters but catastrophically forgot parts of the G001 champion's robust duel/wall/defensive skill."
+  },
+  "g003_strategy": [
+    "Keep the G001/G002 main champion active; do not promote Worker 4 directly.",
+    "Use Worker 4 as a donor specialist.",
+    "Create control and offense crossover seeds with main champion as base.",
+    "Create a reverse defense crossover with Worker 4 as base and main champion as defense donor.",
+    "Force every lineage to face the frozen main champion in 32% of training opponent selections.",
+    "Tighten mutation/exploration for refinement rather than broad rediscovery.",
+    "Use a balanced 1v1 scenario rotation to preserve wall, defense, pressure, finishing and kickoff competence.",
+    "Make the final promotion benchmark team_sizes=[1]; 2v2/3v3/4v4 transfer is informative later and should not block the 1v1 champion."
+  ]
+}

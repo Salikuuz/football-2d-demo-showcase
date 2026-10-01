@@ -1,0 +1,35 @@
+<!-- theodore-quality-reimport-v2 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="ball" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff5bd"/>
+      <stop offset="0.48" stop-color="#ff9b4a"/>
+      <stop offset="1" stop-color="#ff3f55"/>
+    </linearGradient>
+    <linearGradient id="boot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff6a78"/>
+      <stop offset="1" stop-color="#9d234f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Speed trails and the rising volley arc. -->
+  <path d="M9 84c17-4 31-13 42-27" fill="none" stroke="#71f4ff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M13 101c22-4 40-15 53-34" fill="none" stroke="#42a9ff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+  <path d="M51 21c21-12 50-7 65 14" fill="none" stroke="#ffe76a" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+
+  <!-- Airborne striking boot. -->
+  <path d="M10 47 38 30l19 25 27 14-9 25-34-9-22 16-12-14 19-24z" fill="url(#boot)" stroke="#32152d" stroke-width="5" stroke-linejoin="round"/>
+  <path d="m37 31 19 25-18 14-18-17z" fill="#ffd9d4" opacity=".95"/>
+  <path d="m42 84 36 10-5 13-42-10z" fill="#32152d"/>
+  <path d="m25 43 22 22" stroke="#fff0d8" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Explosive contact flash. -->
+  <path d="m78 56 6-17 9 13 15-9-2 17 17 4-14 10 8 15-18-4-6 17-9-14-15 9 3-18-17-5 14-9-8-15z" fill="#fff06a" stroke="#ff6a45" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Flaming football at the moment of the volley. -->
+  <circle cx="96" cy="63" r="25" fill="url(#ball)" stroke="#401b2b" stroke-width="5"/>
+  <path d="m96 50 10 7-4 12H90l-4-12z" fill="#492238"/>
+  <path d="m96 50-2-10M106 57l10-4M102 69l7 9M90 69l-8 9M86 57l-10-5" fill="none" stroke="#6f2940" stroke-width="4" stroke-linecap="round"/>
+  <path d="M104 33c8-9 13-15 11-24 10 7 13 18 7 29z" fill="#ff4b43"/>
+  <path d="M111 36c7-5 12-9 13-16 5 8 3 16-3 22z" fill="#ffb43f"/>
+</svg>

@@ -1,0 +1,14 @@
+I am continuing my Godot 4.7.1 Theodore Ball project from another ChatGPT account. I uploaded a prepared Web/PWA handoff project ZIP. Read THEODORE_WEB_HANDOFF.md first and follow it exactly.
+
+The goal right now is ONLY to get the already-prepared Mobile Web PWA build hosted over HTTPS so I can open it on my iPhone and Add to Home Screen. Do not implement networking yet and do not redesign/reimplement the mobile controls or the game.
+
+The project already contains:
+- Mobile Web PWA export preset
+- touch controls and mobile UI compatibility
+- Steam-independent Web boot path
+- Parts 1–4 of the latest 6v6 AI architecture optimization
+- Vercel config
+- ci/build_web.sh
+- an optional GitHub Actions workflow
+
+Use Godot 4.7.1 stable. Put the source in my correct private GitHub repo, then deploy/host it with Vercel (or use the prepared build workflow if needed). Inspect/fix build errors if any, verify the live .wasm/.pck resources load, then give me the HTTPS URL for Safari on iPhone.

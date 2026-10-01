@@ -1,0 +1,2 @@
+Adaptive 1v1 Generation Manager v3
+Coordinator base: V2.7 generation-managed JSON-safe
