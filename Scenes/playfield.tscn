@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://d3pgmc4ds44xy" path="res://Scenes/screen_visual_fx.gd" id="23_screen_visual_fx"]
 [ext_resource type="Texture2D" uid="uid://bwgcnoaoj662p" path="res://goal.jpg" id="24_coowj"]
 [ext_resource type="Texture2D" uid="uid://d10tvnqc84wdk" path="res://images (3).jpg" id="25_iugrc"]
-[ext_resource type="Texture2D" uid="uid://dt4p3tc3wi0gm" path="res://alvin-und-die-chipmunks-jahr-2007-usa-regie-tim-hill-b83rk8.jpg" id="26_rllx5"]
+[ext_resource type="Texture2D" uid="uid://c2rgli55iv0xg" path="res://Assets/banners/alvin_full.jpg" id="26_rllx5"]
 [ext_resource type="Texture2D" uid="uid://cskjxxwrgrlcr" path="res://e3cdd63a-f9a6-4db2-8136-c353563a90b2.jpg" id="27_omb63"]
 [ext_resource type="Script" path="res://Scenes/mobile_web_controls.gd" id="28_mobile_web_controls"]
 
