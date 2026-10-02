@@ -696,6 +696,18 @@ func host_local() -> bool:
 	if not _can_start_connection():
 		return false
 
+	# Browsers cannot host a normal ENet/UDP server. For the Web showcase,
+	# Custom Match is a local offline host session: OfflineMultiplayerPeer still
+	# gives us server authority/peer 1, so the existing custom lobby, CPU setup,
+	# match options and Start Match flow can run unchanged in one browser.
+	if OS.has_feature("web"):
+		current_mode = NetworkMode.LOCAL_ENET
+		spawn_player_for_peer(multiplayer.get_unique_id())
+		_register_local_identity()
+		connection_changed.emit("Offline custom match ready")
+		_set_session_active(true)
+		return true
+
 	var enet_peer := ENetMultiplayerPeer.new()
 	var error := enet_peer.create_server(LOCAL_PORT, MAX_CLIENTS)
 
